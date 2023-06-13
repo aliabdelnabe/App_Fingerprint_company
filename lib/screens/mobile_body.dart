@@ -1,6 +1,7 @@
 import 'package:arabic_english_app/widget/Content%20writing.dart';
 import 'package:arabic_english_app/widget/after_sales_services.dart';
 import 'package:arabic_english_app/widget/carousel_screen.dart';
+import 'package:arabic_english_app/widget/fingerprint_services.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:arabic_english_app/widget/we_are_on_time.dart';
@@ -86,6 +87,64 @@ class MyMobileBody extends StatelessWidget {
                     WeCreatGreat(width: width),
                     WeAreOnTime(width: width),
                     AfterSalesServices(width: width),
+
+                    const SizedBox(height: 20),
+
+                    Container(
+                      width: double.infinity,
+                      height: 1200,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).hintColor,
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const SizedBox(height: 40),
+                                Text(
+                                              "Fingerprint Service".tr(),
+                                              style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: "Cairo",
+                            fontWeight: FontWeight.w700,
+                            color: Theme.of(context).primaryColorLight,
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 180,
+                                              height: 1.5,
+                                              color: const Color(0xFFFFBC01),
+                                            ),
+                                            const SizedBox(height: 30),
+                                            Text(
+                                              "integrated service".tr(),
+                                              style: TextStyle(
+                            fontSize: 23,
+                            fontFamily: "Cairo",
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).primaryColorLight,
+                                              ),
+                                            ),
+                                            Text(
+                                            "strategies".tr(),
+                                              style: TextStyle(
+                            fontSize: 23,
+                            fontFamily: "Cairo",
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).primaryColorLight,
+                                              ),
+                                            ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 40),
+                          FingerprintServices(width: width)
+                        ],
+                      ),
+                    ),
                     FooterBar(),
                     Container(
                       padding: const EdgeInsets.all(8.0),

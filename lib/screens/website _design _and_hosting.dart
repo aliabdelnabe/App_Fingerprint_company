@@ -554,6 +554,7 @@ class WebsiteDesignScreen extends StatelessWidget {
                             ),
                         ],
                       ),
+                      const SizedBox(height: 50,),
                       ElevatedButton(
                           onPressed: (){},
                         style: ElevatedButton.styleFrom(
@@ -582,6 +583,7 @@ class WebsiteDesignScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 50,),
           Container(
             height: 500,
             width: size.width * 0.93,
@@ -596,7 +598,7 @@ class WebsiteDesignScreen extends StatelessWidget {
                     topRight: Radius.circular(18),
                   ),
                   child: Image.asset(
-                    "assets/images/tiff.webp",
+                    "assets/images/tiff.png",
                     fit: BoxFit.cover,
                     filterQuality:FilterQuality.high,
                   ),
@@ -669,7 +671,7 @@ class WebsiteDesignScreen extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 120,),
+          const SizedBox(height: 350,),
           FooterBar(),
           Container(
             padding: const EdgeInsets.all(8.0),

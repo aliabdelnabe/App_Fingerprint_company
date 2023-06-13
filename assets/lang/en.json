@@ -20,6 +20,8 @@
     "text5" : "A leading digital marketing agency since 2019. We provide\n integrated services, including e-marketing, designing\n commercial identities, photography, video production and\n animation, in addition to web solutions, programming, web\n hosting services and servers.",
     "text6" : "our services",
     "text7" : "Social Media Management",
+    "text7 title1"  :  "Marketing Campaign Management We gained our\n leadership from our ability to manage marketing",
+    "text7 title2"  :  "campaigns through social media...",
     "text8" : "Website design and hosting",
     "text9" : "Production of Videos",
     "text10" : "Production of Videos",
@@ -186,7 +188,11 @@
     "8- Speed"  :  "8- Speed",
     "8- Speed title"  :  "When you build your own programming site, you can improve the\n performance of the site and make it much faster than sites that\n depend on ready-made web platforms, as you can optimize and\n optimize your site code to achieve better performance.",
     "9- SEO search engine optimization"  :  "9- SEO search engine optimization",
-    "9- SEO search engine optimization title"  :  "One of the most important things that website owners and\n bloggers look for is proprietary programming, which gives you the\n ability to see if your content is compatible with all SEO standards."
+    "9- SEO search engine optimization title"  :  "One of the most important things that website owners and\n bloggers look for is proprietary programming, which gives you the\n ability to see if your content is compatible with all SEO standards.",
+
+    "Fingerprint Service"  :  "Fingerprint Services",
+    "integrated service" :  "We provide integrated service",
+    "strategies"  :  "strategies for each of our clients"
 
 
 }
