@@ -1,12 +1,11 @@
 
-import 'package:arabic_english_app/screens/google_ads.dart';
-import 'package:arabic_english_app/screens/social_media_management.dart';
+import 'package:arabic_english_app/screens/production%20_videos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class FingerprintServices extends StatelessWidget {
-  const FingerprintServices({
+class FingerprintServices7 extends StatelessWidget {
+  const FingerprintServices7({
     super.key,
     required this.width,
   });
@@ -20,8 +19,9 @@ class FingerprintServices extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: width * 0.72,
-            child: SvgPicture.asset("assets/images/image_service_social.svg",
+            width: width * 0.75,
+            height: 300,
+            child: SvgPicture.asset("assets/images/image_puctur_product.svg",
             fit: BoxFit.cover,
             ),
           ),
@@ -30,9 +30,9 @@ class FingerprintServices extends StatelessWidget {
             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                builder: (context) => const SocialMediaManagement()));
+                                builder: (context) => const ProductionVideos()));
           },
-          child: Text("text7".tr(),
+          child: Text("Product photograph".tr(),
             style:  TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
@@ -41,21 +41,21 @@ class FingerprintServices extends StatelessWidget {
                                     ),
                                   ),
         ),
-    Text("text7 title1".tr(),
+    Text("Product photography title1".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 15,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
                 ),
                 ),
-                Text("text7 title2".tr(),
+                Text("Product photography title2".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 15,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,

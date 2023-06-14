@@ -1,12 +1,11 @@
 
-import 'package:arabic_english_app/screens/google_ads.dart';
-import 'package:arabic_english_app/screens/social_media_management.dart';
+import 'package:arabic_english_app/screens/motion_graphic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class FingerprintServices extends StatelessWidget {
-  const FingerprintServices({
+class FingerprintServices4 extends StatelessWidget {
+  const FingerprintServices4({
     super.key,
     required this.width,
   });
@@ -20,8 +19,9 @@ class FingerprintServices extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: width * 0.72,
-            child: SvgPicture.asset("assets/images/image_service_social.svg",
+            width: width * 0.85,
+            height: 330,
+            child: SvgPicture.asset("assets/images/image_service_video_motion.svg",
             fit: BoxFit.cover,
             ),
           ),
@@ -30,32 +30,32 @@ class FingerprintServices extends StatelessWidget {
             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                builder: (context) => const SocialMediaManagement()));
+                                builder: (context) => const MotionGraphic()));
           },
-          child: Text("text7".tr(),
+          child: Text("Production of Motion".tr(),
             style:  TextStyle(
-            fontSize: 28,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
             fontFamily: "Cairo",
             color: Theme.of(context).secondaryHeaderColor,
                                     ),
                                   ),
         ),
-    Text("text7 title1".tr(),
+    Text("text11 title1".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 15,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
                 ),
                 ),
-                Text("text7 title2".tr(),
+                Text("text11 title2".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 15,
+                  fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,

@@ -30,6 +30,9 @@ class ThemeService {
     toggleableActiveColor: Colors.black,
     selectedRowColor: Color(0xff46033A).withOpacity(0.3),
     scaffoldBackgroundColor: Color.fromARGB(255, 245, 237, 237),
+    cardTheme:const CardTheme(
+      color: Color(0xff5631A0)
+    ),
 
 
 
@@ -59,6 +62,9 @@ class ThemeService {
     toggleableActiveColor: Colors.white,
     selectedRowColor: Colors.black.withOpacity(0.3),
     scaffoldBackgroundColor:Colors.white,
+    cardTheme:const CardTheme(
+      color: Color(0xFF111827)
+    ),
   );
 
   final _getStorage = GetStorage();

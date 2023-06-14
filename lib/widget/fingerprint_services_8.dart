@@ -1,12 +1,10 @@
 
-import 'package:arabic_english_app/screens/google_ads.dart';
-import 'package:arabic_english_app/screens/social_media_management.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class FingerprintServices extends StatelessWidget {
-  const FingerprintServices({
+class FingerprintServices8 extends StatelessWidget {
+  const FingerprintServices8({
     super.key,
     required this.width,
   });
@@ -21,37 +19,29 @@ class FingerprintServices extends StatelessWidget {
         children: [
           Container(
             width: width * 0.72,
-            child: SvgPicture.asset("assets/images/image_service_social.svg",
+            child: SvgPicture.asset("assets/images/image_clients_manege.svg",
             fit: BoxFit.cover,
             ),
           ),
-        TextButton(
-          onPressed: (){
-            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                builder: (context) => const SocialMediaManagement()));
-          },
-          child: Text("text7".tr(),
-            style:  TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Cairo",
-            color: Theme.of(context).secondaryHeaderColor,
-                                    ),
+        Text("ERP System".tr(),
+          style:  TextStyle(
+          fontSize: 28,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Cairo",
+          color: Theme.of(context).secondaryHeaderColor,
                                   ),
-        ),
-    Text("text7 title1".tr(),
+                                ),
+    Text("ERP System title1".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 15,
+                  fontSize: 14,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
                 ),
                 ),
-                Text("text7 title2".tr(),
+                Text("ERP System title2".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
