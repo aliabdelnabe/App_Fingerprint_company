@@ -172,7 +172,7 @@ class MyMobileBody extends StatelessWidget {
                     ),
                     Container(
                       width: double.infinity,
-                      color: Theme.of(context).,
+                      color: Color(0xFF704ABB),
                       height: 100,
                     ),
                     FooterBar(),
