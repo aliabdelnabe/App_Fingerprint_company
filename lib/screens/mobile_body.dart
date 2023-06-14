@@ -1,6 +1,8 @@
 import 'package:arabic_english_app/widget/Content%20writing.dart';
+import 'package:arabic_english_app/widget/TheNumberOfExperiencedClients.dart';
 import 'package:arabic_english_app/widget/after_sales_services.dart';
 import 'package:arabic_english_app/widget/carousel_screen.dart';
+import 'package:arabic_english_app/widget/carousel_screen3.dart';
 import 'package:arabic_english_app/widget/fingerprint_services.dart';
 import 'package:arabic_english_app/widget/fingerprint_services_1.dart';
 import 'package:arabic_english_app/widget/fingerprint_services_2.dart';
@@ -170,11 +172,8 @@ class MyMobileBody extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      color: Color(0xFF704ABB),
-                      height: 100,
-                    ),
+                    const TheNumberOfExperiencedClients(),
+                    const CarouselScreen3(),
                     FooterBar(),
                     Container(
                       padding: const EdgeInsets.all(8.0),
