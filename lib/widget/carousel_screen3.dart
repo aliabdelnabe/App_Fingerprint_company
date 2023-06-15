@@ -15,22 +15,18 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
   List <String> dataNeme  = [
     "يوسف شعبان",
     "omar Abdelatif",
-    "mohamed osama",
-    "Yasser M.Ewayan",
+
 
   ];
   List <String> dataComments  = [
   "تتميز الشركه بالجوده والعمل الممتاز والمتابعه المستمرة فى العمل #بصمه",
   "شركه فى منتهى الزوق والحترام والرقى فى التعامل....سرعة فى الاداء شكراً",
-  "بجد شركه محترمه جداً والتسليم فى الاوقات المحدده",
-  "تتسم الشركة بالمواعيد والجدية فى العمل",
 
   ];
   List <String> dataImage = [
-    "assets/images/unnamed.png",
-    "assets/images/3.jpg",
-    "assets/images/6.png",
-    "assets/images/letter-y.png",
+    "assets/images/622.jpg",
+    "assets/images/623.jpg",
+
 
 
 
@@ -38,8 +34,7 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
   List <String> sectionName = [
     "Social Media designs",
     "Website design and hosting",
-    "Section",
-    "Website design and hosting",
+
 
 
     ];
@@ -64,7 +59,7 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
         curve: Curves.easeInOutCirc
         );
         pagNo ++;
-     });
+    });
   }
 
   @override
@@ -85,7 +80,7 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
   }
 
 
- 
+
 
   final CarouselController carouselController = CarouselController();
   @override
@@ -93,7 +88,6 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
     return Column(
       children: [
         SizedBox(
-          height: 350,
           child: PageView.builder(
             controller: pageController,
             itemBuilder: (_, index){
@@ -102,39 +96,34 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
               },
               child:Container(
               margin: const EdgeInsets.all(12.0),
-              height: 300,
-              decoration: BoxDecoration(
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ClipRRect(
+                            borderRadius:const BorderRadius.only(
+                            topLeft: Radius.circular(18),
+                            topRight: Radius.circular(18),
+                    ),
+                            child: Image.asset(dataImage[index],
+                            fit: BoxFit.cover,
+                            ),
+                           ),
+                        const SizedBox(height: 15),
+                    Container(
+                      decoration: BoxDecoration(
                       boxShadow:const [
                         BoxShadow(
                           offset: Offset(0, 1),
                           blurRadius: 0.5,
-                          
                         //  blurStyle: BlurStyle.solid
                         )
                       ],
-                      borderRadius:const BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                        topRight: Radius.circular(10)
-                      ),
-                        color:Theme.of(context).backgroundColor,
+                      color:Theme.of(context).backgroundColor,
                     ),
-                    child: Container(
-                      margin: const EdgeInsets.all(25),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                           CircleAvatar(
-                            backgroundImage: AssetImage(
-                            dataImage[index],
-                          ),
-                          backgroundColor: Colors.white,
-                          radius: 40,
-                        ),
-                        const SizedBox(height: 15),
-                        Text(
+                          Text(
                           dataNeme[index],
                         style: TextStyle(
                         fontSize: 20,
@@ -143,18 +132,16 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
                         color: Theme.of(context).shadowColor,
                       ),
                     ),
-                    const SizedBox(height: 10,),
-                    Text(
-                        dataComments[index],
-                        style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: "Cairo",
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).toggleableActiveColor,
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                      Row(
+                          Text(
+                              dataComments[index],
+                              style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Cairo",
+                              fontWeight: FontWeight.w600,
+                              color: Theme.of(context).toggleableActiveColor,
+                            ),
+                          ),
+                          Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -180,6 +167,11 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
                           ),
                         ],
                       )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                      
                   ],
                   ),
                 ),
@@ -194,7 +186,3 @@ class _CarouselScreen3State extends State<CarouselScreen3> {
 
 
 }
-
-/*
- 
-            */

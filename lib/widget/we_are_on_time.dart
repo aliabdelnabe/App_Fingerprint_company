@@ -18,7 +18,6 @@ class WeAreOnTime extends StatelessWidget {
       child:  Container(
         
       width: width*0.92,
-        height: 460,
           decoration:  BoxDecoration(
         color:Theme.of(context).hintColor,
           boxShadow: [

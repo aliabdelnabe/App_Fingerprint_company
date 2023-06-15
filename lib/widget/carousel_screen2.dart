@@ -102,8 +102,7 @@ class _CarouselScreenState extends State<CarouselScreen2> {
               },
               child:Container(
               margin: const EdgeInsets.all(12.0),
-              height: 300,
-              decoration: BoxDecoration(
+               decoration: BoxDecoration(
                       boxShadow:const [
                         BoxShadow(
                           offset: Offset(0, 1),
@@ -153,31 +152,33 @@ class _CarouselScreenState extends State<CarouselScreen2> {
                         color: Theme.of(context).toggleableActiveColor,
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "section Name".tr(),
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               fontFamily: "Cairo",
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).toggleableActiveColor,
                             ),
                           ),
-                          TextButton(
-                            onPressed: (){},
+                          const SizedBox(width: 5.6,),
+                          InkWell(
+                            onTap: (){},
                             child: Text(
                               sectionName[index].tr(),
+                              overflow: TextOverflow.clip,
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 14,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
                                 color: Theme.of(context).toggleableActiveColor,
                               ),
                             ),
-                          ),
+                          )
                         ],
                       )
                   ],

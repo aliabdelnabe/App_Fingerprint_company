@@ -1,8 +1,10 @@
+
 import 'package:arabic_english_app/widget/Content%20writing.dart';
 import 'package:arabic_english_app/widget/TheNumberOfExperiencedClients.dart';
 import 'package:arabic_english_app/widget/after_sales_services.dart';
 import 'package:arabic_english_app/widget/carousel_screen.dart';
 import 'package:arabic_english_app/widget/carousel_screen3.dart';
+import 'package:arabic_english_app/widget/customer_reviews_end.dart';
 import 'package:arabic_english_app/widget/fingerprint_services.dart';
 import 'package:arabic_english_app/widget/fingerprint_services_1.dart';
 import 'package:arabic_english_app/widget/fingerprint_services_2.dart';
@@ -173,7 +175,11 @@ class MyMobileBody extends StatelessWidget {
                       ),
                     ),
                     const TheNumberOfExperiencedClients(),
-                    const CarouselScreen3(),
+                    const SizedBox(height: 60,),
+                    //const CarouselScreen3(),
+                    const SizedBox(height: 200,),
+                    CustomerReviewsEND(width: width),
+                      const SizedBox(height: 80,),
                     FooterBar(),
                     Container(
                       padding: const EdgeInsets.all(8.0),
@@ -206,3 +212,4 @@ class MyMobileBody extends StatelessWidget {
     );
   }
 }
+

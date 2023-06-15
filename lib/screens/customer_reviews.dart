@@ -320,9 +320,9 @@ class _CustomerReviewsState extends State<CustomerReviews> {
                               children: [
                                 TextButton(
                                   onPressed: (){},
-                                  child: Row(
+                                  child:const Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children:const [
+                                    children: [
                                       Text("201090844348",
                                       style: TextStyle(
                                         color: Color(0XFF9e0080),

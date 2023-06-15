@@ -1,5 +1,3 @@
-
-import 'package:arabic_english_app/screens/google_ads.dart';
 import 'package:arabic_english_app/screens/social_media_management.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
