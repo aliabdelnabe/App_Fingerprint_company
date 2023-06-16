@@ -203,22 +203,22 @@ class _BlogState extends State<Blog> {
                     ),
                     const SizedBox(height: 10),
                     Container(
-                      padding: const EdgeInsets.all(15),
+                      width: double.infinity ,
+                      padding: const EdgeInsets.all(10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
+                            width: width * 0.50,
                             decoration:const BoxDecoration(
                               color: Colors.amber
                             ),
-                            width: 165,
                             height: 8,
                           ),
                           Container(
+                            width: width*0.42,
                             decoration: BoxDecoration(
                               color: Theme.of(context).toggleableActiveColor
                             ),
-                            width: 165,
                             height: 0.6,
                           ),
                         ],
@@ -228,7 +228,6 @@ class _BlogState extends State<Blog> {
                     
                       Container(
                         width: double.infinity,
-                        height: 460,
                         child: Column(
                           children: [
                            CheckboxListTile(
@@ -435,7 +434,7 @@ class _BlogState extends State<Blog> {
                                 decoration:const BoxDecoration(
                                   color: Colors.amber
                                 ),
-                                width: 215,
+                                width: width * 0.70,
                                 height: 8,
                               ),
                              /* Container(
@@ -477,7 +476,7 @@ class _BlogState extends State<Blog> {
                                   child: Row(
                                     children: [
                                       Container(
-                                        width: width*0.35,
+                                        width: width*0.33,
                                         child: Image.asset(
                                           "assets/images/622.jpg",
                                           fit: BoxFit.cover,
@@ -490,13 +489,12 @@ class _BlogState extends State<Blog> {
                                             children: [
                                               Text(
                                           "What are the".tr(),
-                                              style:const TextStyle(
-                                                fontSize: 14,
+                                              style: TextStyle(
+                                                fontSize: width/25,
                                                 fontFamily: "Cairo",
                                                 fontWeight: FontWeight.w800,
                                                 color: Colors.amber
                                               ),
-                                              overflow: TextOverflow.ellipsis,
                                               ),
                                               Row(
                                                 children: [
@@ -509,10 +507,10 @@ class _BlogState extends State<Blog> {
                                                       color: Colors.grey,
                                                       ),
                                                       ),
-                                                  const Text(
+                                                   Text(
                                                     " 05-03-2023",
-                                                  style:const TextStyle(
-                                                    fontSize: 15,
+                                                  style: TextStyle(
+                                                    fontSize: width /28,
                                                     fontFamily: "Cairo",
                                                     fontWeight: FontWeight.w600,
                                                     color: Colors.amber
@@ -546,7 +544,7 @@ class _BlogState extends State<Blog> {
                                   child: Row(
                                     children: [
                                       Container(
-                                        width: width*0.34,
+                                        width: width*0.33,
                                         height: 100,
                                         child: Image.asset(
                                           "assets/images/623.jpg",
@@ -560,13 +558,12 @@ class _BlogState extends State<Blog> {
                                             children: [
                                               Text(
                                                 "Advantages".tr(),
-                                              style:const TextStyle(
-                                                fontSize: 15,
+                                              style: TextStyle(
+                                                fontSize: width / 23,
                                                 fontFamily: "Cairo",
                                                 fontWeight: FontWeight.w800,
                                                 color: Colors.amber
                                               ),
-                                              overflow: TextOverflow.ellipsis,
                                               ),
                                               Row(
                                                 children: [
@@ -579,10 +576,10 @@ class _BlogState extends State<Blog> {
                                                       color: Colors.grey,
                                                       ),
                                                       ),
-                                                  const Text(
+                                                   Text(
                                                     " 05-03-2023",
-                                                  style:const TextStyle(
-                                                    fontSize: 15,
+                                                  style: TextStyle(
+                                                    fontSize: width/28,
                                                     fontFamily: "Cairo",
                                                     fontWeight: FontWeight.w600,
                                                     color: Colors.amber
@@ -617,13 +614,14 @@ class _BlogState extends State<Blog> {
                                 ),
                                 width: 120,
                                 height: 50,
-                                child:const Center(
+                                child: Center(
                                   child: Text(
                                     "05-03-2023",
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: width / 17,
                                       fontFamily: "Cairo",
                                       fontWeight: FontWeight.w600,
+                                      color: Colors.white
                                     ),
                                     ),
                                 ),
@@ -646,23 +644,23 @@ class _BlogState extends State<Blog> {
                           //السم الصاحب المدونه وصورته وزر التعلقات
                           Row(
                             children: [
-                            const SizedBox(width: 10),
+                            SizedBox(width: width / 90),
                             const CircleAvatar(
                             backgroundImage: AssetImage(
                             "assets/images/624.jpg",
                           ),
                           backgroundColor: Colors.white,
-                          radius: 20,
+                          radius: 17,
                         ),
                         Text(" Taha Abdelmoneim",
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 14,
                             // ignore: deprecated_member_use
                             color: Theme.of(context).toggleableActiveColor,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w500
                           ),),
-                        const SizedBox(width: 10,),
+                        SizedBox(width: width / 90,),
                         Text(
                           "|",
                           style: TextStyle(
@@ -671,10 +669,10 @@ class _BlogState extends State<Blog> {
                             color: Theme.of(context).toggleableActiveColor
                           ),
                         ),
-                        const SizedBox(width: 10),
+                         SizedBox(width: width /90),
                         Container(
-                          width: 30,
-                          height: 30,
+                          width: 25,
+                          height: 25,
                           child: Image.asset(
                             "assets/icons/comment.png",
                             fit: BoxFit.cover,
@@ -702,13 +700,12 @@ class _BlogState extends State<Blog> {
                                 },
                                 child: Text(
                                 "What are the2".tr(),
-                                style:const TextStyle(
-                                fontSize: 19,
+                                style: TextStyle(
+                                fontSize: width/20,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w800,
                                 color: Colors.amber
                                 ),
-                                overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               Row(
@@ -717,7 +714,7 @@ class _BlogState extends State<Blog> {
                                   Text(
                                     "What are the1".tr(),
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: width/27,
                                       fontFamily: "Cairo",
                                       fontWeight: FontWeight.w600,
                                       // ignore: deprecated_member_use
@@ -752,8 +749,8 @@ class _BlogState extends State<Blog> {
                                   const SizedBox(width: 5),
                                   Text(
                                     "read more".tr(),
-                                    style:const TextStyle(
-                                      fontSize: 18,
+                                    style: TextStyle(
+                                      fontSize: width / 17,
                                       fontFamily: "Cairo",
                                       fontWeight: FontWeight.w600
                                     ),
@@ -791,6 +788,7 @@ class _BlogState extends State<Blog> {
                                       fontSize: 20,
                                       fontFamily: "Cairo",
                                       fontWeight: FontWeight.w600,
+                                      color: Colors.white
                                     ),
                                     ),
                                 ),
@@ -812,25 +810,25 @@ class _BlogState extends State<Blog> {
                           ),
                           const SizedBox(height: 10),
                           //السم الصاحب المدونه وصورته وزر التعلقات
-                           Row(
+                            Row(
                             children: [
-                            const SizedBox(width: 10),
+                            SizedBox(width: width / 90),
                             const CircleAvatar(
                             backgroundImage: AssetImage(
                             "assets/images/624.jpg",
                           ),
                           backgroundColor: Colors.white,
-                          radius: 20,
+                          radius: 17,
                         ),
                         Text(" Taha Abdelmoneim",
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: width/23,
                             // ignore: deprecated_member_use
                             color: Theme.of(context).toggleableActiveColor,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w500
                           ),),
-                        const SizedBox(width: 10,),
+                        SizedBox(width: width / 90,),
                         Text(
                           "|",
                           style: TextStyle(
@@ -839,10 +837,10 @@ class _BlogState extends State<Blog> {
                             color: Theme.of(context).toggleableActiveColor
                           ),
                         ),
-                        const SizedBox(width: 10),
+                         SizedBox(width: width /90),
                         Container(
-                          width: 30,
-                          height: 30,
+                          width: 25,
+                          height: 25,
                           child: Image.asset(
                             "assets/icons/comment.png",
                             fit: BoxFit.cover,
@@ -869,13 +867,13 @@ class _BlogState extends State<Blog> {
                                 },
                                 child: Text(
                                 "Advantages1".tr(),
-                                style:const TextStyle(
-                                fontSize: 19,
+                                style: TextStyle(
+                                fontSize: width / 20,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w800,
                                 color: Colors.amber
                                 ),
-                                overflow: TextOverflow.ellipsis,
+                                
                                 ),
                               ),
                               Row(
@@ -884,7 +882,7 @@ class _BlogState extends State<Blog> {
                                   Text(
                                     "Advantages2".tr(),
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: width/28,
                                       fontFamily: "Cairo",
                                       fontWeight: FontWeight.w600,
                                       // ignore: deprecated_member_use
@@ -946,7 +944,7 @@ class _BlogState extends State<Blog> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Container(
-                                    width: 70,
+                                    width: width / 4,
                                     height: 60,
                                     decoration: BoxDecoration(
                                       color: Colors.grey,
@@ -967,17 +965,17 @@ class _BlogState extends State<Blog> {
                                   TextButton(
                                     onPressed: (){},
                                     child: Container(
-                                      width: 45,
+                                      width: width /6.5,
                                       height: 60,
                                       decoration: BoxDecoration(
                                         color: Colors.amber,
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child:const Center(
+                                      child: Center(
                                         child: Text(
                                           "1",
                                           style: TextStyle(
-                                            fontSize: 30,
+                                            fontSize: width/10,
                                             fontFamily: "Cairo",
                                             fontWeight: FontWeight.w600,
                                             color: Colors.white
@@ -988,7 +986,7 @@ class _BlogState extends State<Blog> {
                                   ),
                                   const SizedBox(width: 15),
                                   Container(
-                                    width: 70,
+                                    width: width /4,
                                     height: 60,
                                     decoration: BoxDecoration(
                                       color: Colors.grey,
@@ -1005,7 +1003,7 @@ class _BlogState extends State<Blog> {
                                         )
                                       ),
                                   ),
-                                  const SizedBox(width: 15),
+                                  SizedBox(width: width /25 ),
                                 ],
                               ),
                               const SizedBox(height: 20),
@@ -1013,26 +1011,24 @@ class _BlogState extends State<Blog> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Container(
-                                    width: 120,
+                                    width: width/2.5,
                                     height: 60,
                                     decoration: BoxDecoration(
                                       color: Colors.grey,
                                       borderRadius: BorderRadius.circular(10)
                                     ),
-                                    child:const Center(
+                                    child: Center(
                                         child: Text(
                                           "1/1",
                                           style: TextStyle(
-                                            fontSize: 35,
+                                            fontSize: width/ 7.3,
                                             fontFamily: "Cairo",
-                                            color:  Color.fromARGB(255, 87, 94, 109),
+                                            color: const Color.fromARGB(255, 87, 94, 109),
                                           ),
                                         )
                                       ),
                                   ),
-                                  const SizedBox(width: 15),
-                                  
-                                  const SizedBox(width: 15),
+                                   SizedBox(width: width /15),
                                   Container(
                                     width: 70,
                                     height: 55,
@@ -1040,11 +1036,11 @@ class _BlogState extends State<Blog> {
                                       color: Colors.grey,
                                       borderRadius: BorderRadius.circular(10)
                                     ),
-                                    child:const Center(
+                                    child: Center(
                                         child: Text(
                                           "2",
                                           style: TextStyle(
-                                            fontSize: 30,
+                                            fontSize: width / 9,
                                             fontFamily: "Cairo",
                                             fontWeight: FontWeight.w700,
                                             color:  Color.fromARGB(255, 112, 121, 141),

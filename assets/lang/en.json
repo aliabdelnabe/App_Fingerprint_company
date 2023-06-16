@@ -107,11 +107,12 @@
     "rememberme"  :  "remembr me",
     "or through"  :  "or through",
     "Donthaveanaccount"  :  "Don't have an account?",
+     "Donthaveanaccount2"  :  "Already have an account?",
     "Create a new account"  :  "Create a new account",
     "Name"  :  "Name",
     "phonenumber" :  "phone number",
     "Already have an account"  :  "Already have an account?",
-    "Imprint company" : "Imprint company",
+    "Imprint company" : "Fingerprint company",
     "Imprint company1"  :  "fingerprint is a leading integrated digital marketing agency, specialized in providing e-marketing services and designing Commercial identities in addition to web solutions, programming, web hosting services and servers.",
     "fingerprint"  :  "Since our inception, we have been keeping the element of excellence and creativity in mind. We have been working for more than 10 years with a team with qualified experience, as we have a team consisting of marketers, designers and developers, and we have gathered in the field of specialization to develop and innovate.",
     "fingerprint1"  :  "We make your company a brand that has a wide resonance and is at the forefront of the search results in the most famous search engines such as Google and social networking sites such as Facebook, Twitter, Instagram, and others, as we focus on the most important metrics and know what it takes to get real results and profits online, and we know that achieving these Objectives are what move companies forward, and we believe that our clients' success is the best measure of our performance.",    
@@ -213,7 +214,9 @@
 
     "Fingerprint Service"  :  "Fingerprint Services",
     "integrated service" :  "We provide integrated service",
-    "strategies"  :  "strategies for each of our clients"
-
+    "strategies"  :  "strategies for each of our clients",
+    "slider title1"  :  "WordPress is a popular open source content management system used to create websites a",
+    "slider title2"  :  "Special programming is programming the site from scratch using specific programming la",
+    "Taha Abdelmoneim"  :  "Taha Abdelmoneim"
 
 }

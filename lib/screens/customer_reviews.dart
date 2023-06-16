@@ -473,8 +473,7 @@ class _CustomerReviewsState extends State<CustomerReviews> {
                             ),
                     onPressed: (){},
                     child:Container(
-                      width: width*0.38,
-                      height: 50,
+                      width: width*0.40,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -485,12 +484,12 @@ class _CustomerReviewsState extends State<CustomerReviews> {
                               fit: BoxFit.cover,
                               color: Colors.white,
                               ),
-                              const SizedBox(width: 10),
+                              const SizedBox(width: 4),
                               Text(
                             "Write a review".tr(),
-                            style:const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: width / 21,
                               fontFamily: "Cairo",
                               fontWeight: FontWeight.bold
                             ),

@@ -338,26 +338,26 @@ class _LogInState extends State<LogIn> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              width: 75,
+                              width: width* 0.23,
                               height: 5,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: const Color.fromARGB(255, 109, 78, 172),
                               ),
                             ),
-                            const SizedBox(width: 10,),
+                            SizedBox(width: width / 90,),
                             Text(
                               "or through".tr(),
                               style:const TextStyle(
-                                fontSize: 22,
+                                fontSize: 21,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w700,
                                 color: Color.fromARGB(255, 109, 78, 172),
                               ),
                               ),
-                              const SizedBox(width: 10,),
+                              SizedBox(width: width / 90),
                               Container(
-                              width: 75,
+                              width: width * 0.23,
                               height: 5,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),

@@ -10,7 +10,6 @@ class FooterBar extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width,
-      height: 1668,
       color: Theme.of(context).primaryColor,
       child: Column(
         children: [

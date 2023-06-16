@@ -147,7 +147,6 @@ class About extends StatelessWidget {
                       ),
                       Container(
               width: double.infinity,
-              height: 1650,
               decoration: BoxDecoration(
                 color: Theme.of(context).splashColor,
             
@@ -288,7 +287,6 @@ class About extends StatelessWidget {
                   AfterSalesServices(width: width),
                   const SizedBox(height: 20,),
                   Container(
-                    height: 1100,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color:const Color.fromARGB(255, 177, 34, 151),
@@ -471,18 +469,18 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 60,),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
                       borderRadius: BorderRadius.circular(60)
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -492,10 +490,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Submit a service request to the company".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width / 21,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -505,7 +503,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -513,10 +510,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -526,10 +523,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Get Project Data".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width / 17,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -539,7 +536,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -547,10 +543,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -560,10 +556,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Submission of technical".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 15,
+                                  style: TextStyle(
+                                    fontSize: width / 21,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -573,7 +569,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -581,10 +576,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -594,10 +589,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "start according".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width / 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -607,7 +602,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -615,10 +609,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -628,10 +622,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Provide an initial".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width / 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -641,7 +635,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -649,10 +642,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -662,10 +655,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Getting approval".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 15,
+                                  style: TextStyle(
+                                    fontSize: width / 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -675,7 +668,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -683,10 +675,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -696,8 +688,8 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Set the time".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width /21,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -709,7 +701,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -717,10 +708,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -730,10 +721,10 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                                 "Final Image ".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width / 21,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFFFBC01),
+                                    color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
                                   ),
                                 ),
@@ -743,7 +734,6 @@ class About extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Container(
-                    height: 110,
                     width: width * 0.90,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 177, 34, 151),
@@ -751,10 +741,10 @@ class About extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 0,),
                         Container(
-                          height: 50,
-                          width: 50,
+                          height: 40,
+                          width: 40,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -764,8 +754,8 @@ class About extends StatelessWidget {
                             Container(
                               child: Text(
                             "Technical and after".tr(),
-                                  style:const TextStyle(
-                                    fontSize: 17,
+                                  style: TextStyle(
+                                    fontSize: width / 21,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFFFFBC01),
                                     fontFamily: "Cairo",

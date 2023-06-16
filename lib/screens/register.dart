@@ -360,7 +360,7 @@ class _RegisterState extends State<Register> {
                         child: Row(
                             children: [
                               Text(
-                                "Donthaveanaccount".tr(),
+                                "Donthaveanaccount2".tr(),
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: "Cairo",

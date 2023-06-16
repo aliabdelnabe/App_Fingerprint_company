@@ -148,7 +148,7 @@ class WebsiteDesignScreen extends StatelessWidget {
           ),
           const SizedBox(height: 60,),
           Container(
-            height: 500,
+            height: 550,
             width: size.width * 0.93,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -167,7 +167,6 @@ class WebsiteDesignScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 290,
                   width: size.width * 0.93,
                   decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
@@ -227,15 +226,17 @@ class WebsiteDesignScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 15,)
                     ],
                   ),
-                )
+                ),
+                
               ],
             ),
           ),
           Container(
-            height: 500,
+            height: 550,
             width: size.width * 0.93,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -254,7 +255,6 @@ class WebsiteDesignScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 290,
                   width: size.width * 0.93,
                   decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
@@ -314,7 +314,8 @@ class WebsiteDesignScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 15,)
                     ],
                   ),
                 )
@@ -322,7 +323,7 @@ class WebsiteDesignScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 500,
+            height: 550,
             width: size.width * 0.93,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -341,7 +342,6 @@ class WebsiteDesignScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 290,
                   width: size.width * 0.93,
                   decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
@@ -378,6 +378,7 @@ class WebsiteDesignScreen extends StatelessWidget {
                               ),
                               ),
                             ),
+                            const SizedBox(height: 15,)
                         ],
                       ),
                       ElevatedButton(
@@ -409,7 +410,7 @@ class WebsiteDesignScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 500,
+            height: 550,
             width: size.width * 0.93,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -428,7 +429,6 @@ class WebsiteDesignScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 290,
                   width: size.width * 0.93,
                   decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
@@ -488,7 +488,8 @@ class WebsiteDesignScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 15,)
                     ],
                   ),
                 )
@@ -496,7 +497,7 @@ class WebsiteDesignScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 500,
+            height: 550,
             width: size.width * 0.93,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -515,7 +516,6 @@ class WebsiteDesignScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 290,
                   width: size.width * 0.93,
                   decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
@@ -576,7 +576,8 @@ class WebsiteDesignScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 15,)
                     ],
                   ),
                 )
@@ -585,7 +586,7 @@ class WebsiteDesignScreen extends StatelessWidget {
           ),
           const SizedBox(height: 50,),
           Container(
-            height: 500,
+            height: 550,
             width: size.width * 0.93,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -604,7 +605,6 @@ class WebsiteDesignScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 290,
                   width: size.width * 0.93,
                   decoration: BoxDecoration(
                     borderRadius:const BorderRadius.only(
@@ -664,7 +664,8 @@ class WebsiteDesignScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 15,)
                     ],
                   ),
                 )
