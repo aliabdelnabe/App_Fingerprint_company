@@ -14,66 +14,65 @@ class CustomerReviewsEND extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-         const SizedBox(height: 40),
-                  Text(
-    "customer reviews".tr(),
-    style: TextStyle(
-      fontSize: 30,
-      fontFamily: "Cairo",
-      fontWeight: FontWeight.w700,
-      color: Theme.of(context).primaryColorLight,
-    ),
-                  ),
-                  Container(
-    width: 160,
-    height: 1.5,
-    color: const Color(0xFFFFBC01),
-                  ),
-          const CarouselScreen2(),
-          const SizedBox(height: 40),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amber,
-            ),
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                builder: (context) => const CustomerReviews()));
-            },
-            child:Container(
-      width: width*0.38,
-      height: 50,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-            Image.asset(
-              "assets/icons/write (1).png",
-              height: 25,
-              width: 25,
-              fit: BoxFit.cover,
-              color: Colors.white,
+        width: width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 40),
+            Text(
+              "customer reviews".tr(),
+              style: TextStyle(
+                fontSize: 30,
+                fontFamily: "Cairo",
+                fontWeight: FontWeight.w700,
+                color: Theme.of(context).primaryColorLight,
               ),
-              const SizedBox(width: 10),
-              Text(
-            "Write a review".tr(),
-            style:const TextStyle(
-              color: Colors.white,
-              fontSize: 13.5,
-              fontFamily: "Cairo",
-              fontWeight: FontWeight.bold
             ),
+            Container(
+              width: 160,
+              height: 1.5,
+              color: const Color(0xFFFFBC01),
             ),
-        ],
-      ),
-    ),
+            const CarouselScreen2(),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber,
               ),
-        ],
-      ));
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CustomerReviews()));
+              },
+              child: Container(
+                width: width * 0.38,
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/icons/write (1).png",
+                      height: 25,
+                      width: 25,
+                      fit: BoxFit.cover,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      "Write a review".tr(),
+                      style: const TextStyle(
+                            color: Colors.white,
+                          fontSize: 13.5,
+                                 fontFamily: "Cairo",
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
