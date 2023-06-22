@@ -176,7 +176,7 @@ class MyMobileBody extends StatelessWidget {
                     ),
                     const TheNumberOfExperiencedClients(),
                     const SizedBox(height: 60,),
-                    BlogSlider(),
+                    const BlogSlider(),
                     CustomerReviewsEND(width: width),
                       const SizedBox(height: 80,),
                     FooterBar(),

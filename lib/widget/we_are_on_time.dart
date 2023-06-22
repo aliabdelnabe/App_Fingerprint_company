@@ -16,7 +16,6 @@ class WeAreOnTime extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child:  Container(
-        
       width: width*0.92,
           decoration:  BoxDecoration(
         color:Theme.of(context).hintColor,
@@ -30,6 +29,7 @@ class WeAreOnTime extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 10),
           CircleAvatar(
             backgroundColor: Colors.white,
             radius: 86,
@@ -45,7 +45,7 @@ class WeAreOnTime extends StatelessWidget {
                 Text("We are on time and always interact".tr(),
                 
                 style:  TextStyle(
-                  fontSize: 22,
+                  fontSize: width*0.070,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
@@ -55,7 +55,7 @@ class WeAreOnTime extends StatelessWidget {
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 14,
+                  fontSize:  width *0.045,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,

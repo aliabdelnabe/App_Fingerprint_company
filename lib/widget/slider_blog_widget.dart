@@ -74,10 +74,9 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
       child: Column(
         children: [
           Container(
-            height: 600,
             width: width ,
             child: PageView.builder(
-              controller: controller,
+          //    controller: controller,
               itemCount: images.length,
               itemBuilder:(context, index){
               return Padding(
@@ -112,7 +111,6 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                             ),
                           ),
                           Container(
-                            height: 200,
                             padding:const EdgeInsets.only(
                               left: 5,
                               right: 5
@@ -146,7 +144,7 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                                     title[index].tr(),
                                     style: TextStyle(
                                       fontFamily: "Cairo",
-                                      fontSize: width/19,
+                                      fontSize: width*0.055,
                                       fontWeight: FontWeight.w700
                                     ),
                                   ),
@@ -155,14 +153,14 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                                   comment[index].tr(),
                                   style: TextStyle(
                                     fontFamily: "Cairo",
-                                    fontSize: width / 25,
+                                    fontSize: width *0.040,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.grey
                                   ),
                                 ),
                                  Row(
                             children: [
-                            SizedBox(width: width / 90),
+                            SizedBox(width: width *0.010),
                             const CircleAvatar(
                             backgroundImage: AssetImage(
                             "assets/images/624.jpg",
@@ -172,19 +170,19 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                         ),
                         Text("Taha Abdelmoneim".tr(),
                         style: TextStyle(
-                            fontSize: width/23,
+                            fontSize: width*0.050,
                             // ignore: deprecated_member_use
                             color: Theme.of(context).toggleableActiveColor,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w600
                           ),),
-                        SizedBox(width: width / 4),
+                        SizedBox(width: width *0.09),
                             Text(
                               number[index].tr(),
                               ),
                               Container(
-                          width: 22,
-                          height: 22,
+                          width: width*0.050,
+                          height: width*0.050,
                           child: Image.asset(
                             "assets/icons/user.png",
                             fit: BoxFit.cover,
@@ -194,9 +192,10 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                             ),
                             ],
                           ),
+                          const SizedBox(height: 15),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -204,8 +203,6 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                 ),
               );
             },
-            
-            
             ),
           ),
         ],

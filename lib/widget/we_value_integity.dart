@@ -18,7 +18,6 @@ class WeValueIntegrity extends StatelessWidget {
       child:  Container(
         
       width: width*0.92,
-        height: 460,
           decoration:  BoxDecoration(
         color:Theme.of(context).hintColor,
           boxShadow: [
@@ -31,6 +30,7 @@ class WeValueIntegrity extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 10),
           CircleAvatar(
             backgroundColor: Colors.white,
             radius: 86,
@@ -46,7 +46,7 @@ class WeValueIntegrity extends StatelessWidget {
                 Text("text2".tr(),
                 
                 style:  TextStyle(
-                  fontSize: 28,
+                  fontSize: width*0.095,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
@@ -56,7 +56,7 @@ class WeValueIntegrity extends StatelessWidget {
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 14,
+                  fontSize: width *0.045,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,

@@ -16,10 +16,8 @@ class AfterSalesServices extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child:  Container(
-        
       width: width*0.92,
-        height: 460,
-          decoration:  BoxDecoration(
+            decoration:  BoxDecoration(
         color:Theme.of(context).hintColor,
           boxShadow: [
           BoxShadow(
@@ -31,6 +29,7 @@ class AfterSalesServices extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 10),
           CircleAvatar(
             backgroundColor: Colors.white,
             radius: 86,
@@ -46,7 +45,7 @@ class AfterSalesServices extends StatelessWidget {
                 Text("After Sales Services".tr(),
                 
                 style:  TextStyle(
-                  fontSize: 28,
+                  fontSize: width*0.085,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
@@ -56,7 +55,7 @@ class AfterSalesServices extends StatelessWidget {
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
                   style:  TextStyle(
-                  fontSize: 14,
+                  fontSize: width*0.045,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,

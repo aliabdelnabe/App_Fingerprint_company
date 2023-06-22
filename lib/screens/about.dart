@@ -85,7 +85,7 @@ class About extends StatelessWidget {
                     children:[
                       Container(
                       width: double.infinity,
-                      height: 70,
+                      height: width*0.20,
                       decoration: BoxDecoration(
                         color: Theme.of(context).primaryColorDark,
                         boxShadow: [
@@ -123,7 +123,7 @@ class About extends StatelessWidget {
                           ">>",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 19,
+                            fontSize: width*0.070,
                             fontFamily: "Cairo",
                             color: Theme.of(context).canvasColor,
                             fontWeight: FontWeight.w600
@@ -134,7 +134,7 @@ class About extends StatelessWidget {
                           "Important Links4".tr(),
                         style: TextStyle(
                           fontFamily: "Cairo",
-                          fontSize: 22,
+                          fontSize: width*0.065,
                           color: Theme.of(context).canvasColor,
                           fontWeight: FontWeight.w600
                         ),
@@ -162,14 +162,14 @@ class About extends StatelessWidget {
                   Text(
                     "Imprint company".tr(),
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: width*0.09,
                       fontFamily: "Cairo",
                       fontWeight: FontWeight.w700,
                       color: Theme.of(context).primaryColorLight,
                     ),
                   ),
                   Container(
-                    width: 160,
+                    width: width* 0.50,
                     height: 1.5,
                     color: const Color(0xFFFFBC01),
                   ),
@@ -181,8 +181,8 @@ class About extends StatelessWidget {
                         Text(
                           "Imprint company1".tr(),
                           overflow: TextOverflow.clip,
-                          style:const TextStyle(
-                            fontSize: 14,
+                          style: TextStyle(
+                            fontSize: width * 0.035,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w600
                           ),
@@ -195,8 +195,8 @@ class About extends StatelessWidget {
                         Text(
                           "fingerprint".tr(),
                           overflow: TextOverflow.clip,
-                          style:const TextStyle(
-                            fontSize: 14,
+                          style: TextStyle(
+                            fontSize: width * 0.035,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w600
                           ),
@@ -209,8 +209,8 @@ class About extends StatelessWidget {
                         Text(
                           "fingerprint1".tr(),
                           overflow: TextOverflow.clip,
-                          style:const TextStyle(
-                            fontSize: 14,
+                          style: TextStyle(
+                            fontSize: width * 0.035,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w600
                           ),
@@ -219,14 +219,14 @@ class About extends StatelessWidget {
                   Text(
                     "about imprint".tr(),
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: width * 0.09,
                       fontFamily: "Cairo",
                       fontWeight: FontWeight.w700,
                       color: Theme.of(context).primaryColorLight,
                     ),
                   ),
                   Container(
-                    width: 160,
+                    width: width* 0.50,
                     height: 1.5,
                     color: const Color(0xFFFFBC01),
                   ),
@@ -238,8 +238,8 @@ class About extends StatelessWidget {
                         Text(
                           "about imprint1".tr(),
                           overflow: TextOverflow.clip,
-                          style:const TextStyle(
-                            fontSize: 13,
+                          style: TextStyle(
+                            fontSize: width * 0.035,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w600
                           ),
@@ -253,8 +253,8 @@ class About extends StatelessWidget {
                         Text(
                           "about imprint2".tr(),
                           overflow: TextOverflow.clip,
-                          style:const TextStyle(
-                            fontSize: 13,
+                          style: TextStyle(
+                            fontSize: width * 0.035,
                             fontFamily: "Cairo",
                             fontWeight: FontWeight.w600
                           ),
@@ -267,7 +267,7 @@ class About extends StatelessWidget {
                       Text(
                     "should a fingerprint".tr(),
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: width * 0.05,
                       fontFamily: "Cairo",
                       fontWeight: FontWeight.w700,
                       color: Theme.of(context).primaryColorLight,
@@ -306,16 +306,16 @@ class About extends StatelessWidget {
                             children: [
                               Text("see us".tr(),
                               overflow: TextOverflow.clip,
-                              style:const TextStyle(
-                                fontSize: 28,
+                              style: TextStyle(
+                                fontSize: width * 0.085,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFBC01),
+                                color:const Color(0xFFFFBC01),
                               ),
                               ),
                               Text("see us1".tr(),
-                              style:const TextStyle(
-                                fontSize: 14,
+                              style: TextStyle(
+                                fontSize: width * 0.038,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
                                 color: Color.fromARGB(255, 255, 255, 255),
@@ -331,19 +331,19 @@ class About extends StatelessWidget {
                             children: [
                               Text("Our Mission".tr(),
                               overflow: TextOverflow.clip,
-                              style: const TextStyle(
-                                fontSize: 28,
+                              style:  TextStyle(
+                                fontSize: width * 0.085,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFBC01),
+                                color:const Color(0xFFFFBC01),
                               ),
                               ),
                               Text("Our Mission1".tr(),
-                              style: const TextStyle(
-                                fontSize: 14,
+                              style:  TextStyle(
+                                fontSize: width * 0.038,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color:const Color.fromARGB(255, 255, 255, 255),
                               ),
                               ),
                             ],
@@ -356,19 +356,19 @@ class About extends StatelessWidget {
                             children: [
                               Text("Our Targets".tr(),
                               overflow: TextOverflow.clip,
-                              style: const TextStyle(
-                                fontSize: 28,
+                              style:  TextStyle(
+                                fontSize: width * 0.085,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFBC01),
+                                color:const Color(0xFFFFBC01),
                               ),
                               ),
                               Text("Our Targets1".tr(),
-                              style: const TextStyle(
-                                fontSize: 14,
+                              style:  TextStyle(
+                                fontSize: width * 0.038,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color:const Color.fromARGB(255, 255, 255, 255),
                               ),
                               ),
                             ],
@@ -381,19 +381,19 @@ class About extends StatelessWidget {
                             children: [
                               Text("planning".tr(),
                               overflow: TextOverflow.clip,
-                              style: const TextStyle(
-                                fontSize: 28,
+                              style:  TextStyle(
+                                fontSize: width * 0.085,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFBC01),
+                                color:const Color(0xFFFFBC01),
                               ),
                               ),
                               Text("planning1".tr(),
-                              style: const TextStyle(
-                                fontSize: 14,
+                              style:  TextStyle(
+                                fontSize: width * 0.038,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color:const Color.fromARGB(255, 255, 255, 255),
                               ),
                               ),
                             ],
@@ -406,19 +406,19 @@ class About extends StatelessWidget {
                             children: [
                               Text("the job".tr(),
                               overflow: TextOverflow.clip,
-                              style: const TextStyle(
-                                fontSize: 28,
+                              style:  TextStyle(
+                                fontSize: width * 0.085,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFBC01),
+                                color:const Color(0xFFFFBC01),
                               ),
                               ),
                               Text("the job1".tr(),
-                              style: const TextStyle(
-                                fontSize: 14,
+                              style:  TextStyle(
+                                fontSize: width * 0.038,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color:const Color.fromARGB(255, 255, 255, 255),
                               ),
                               ),
                             ],
@@ -431,19 +431,19 @@ class About extends StatelessWidget {
                             children: [
                               Text("follow".tr(),
                               overflow: TextOverflow.clip,
-                              style: const TextStyle(
-                                fontSize: 28,
+                              style:  TextStyle(
+                                fontSize: width * 0.085,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFBC01),
+                                color:const Color(0xFFFFBC01),
                               ),
                               ),
                               Text("follow1".tr(),
-                              style: const TextStyle(
-                                fontSize: 14,
+                              style:  TextStyle(
+                                fontSize: width * 0.038,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color:const Color.fromARGB(255, 255, 255, 255),
                               ),
                               ),
                             ],
@@ -455,15 +455,15 @@ class About extends StatelessWidget {
                   const SizedBox(height: 20,),
                   Text(
                     "Start Steps".tr(),
-                    style:const TextStyle(
-                      fontSize: 30,
+                    style: TextStyle(
+                      fontSize: width * 0.09,
                       fontFamily: "Cairo",
                       fontWeight: FontWeight.w700,
-                      color:  Color(0xff5631A0),
+                      color:const  Color(0xff5631A0),
                     ),
                   ),
                    Container(
-                    width: 160,
+                    width: width * 0.70,
                     height: 1.5,
                     color:const Color(0xFFFFBC01),
                   ),
@@ -479,8 +479,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width*0.1,
+                          width: width *0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -491,7 +491,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Submit a service request to the company".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 21,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -512,8 +512,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width *0.1,
+                          width: width *0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -524,7 +524,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Get Project Data".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 17,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -545,8 +545,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width*0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -557,7 +557,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Submission of technical".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 21,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -578,8 +578,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width*0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -590,7 +590,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "start according".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 20,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -611,8 +611,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width*0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -623,7 +623,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Provide an initial".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 18,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -644,8 +644,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width*0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -656,7 +656,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Getting approval".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 20,
+                                    fontSize: width *0.044,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -677,8 +677,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width *0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -689,7 +689,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Set the time".tr(),
                                   style: TextStyle(
-                                    fontSize: width /21,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -710,8 +710,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width *0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -722,7 +722,7 @@ class About extends StatelessWidget {
                               child: Text(
                                 "Final Image ".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 21,
+                                    fontSize: width *0.058,
                                     fontWeight: FontWeight.bold,
                                     color:const Color(0xFFFFBC01),
                                     fontFamily: "Cairo",
@@ -743,8 +743,8 @@ class About extends StatelessWidget {
                       children: [
                         const SizedBox(height: 0,),
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: width*0.1,
+                          width: width*0.1,
                           child: Image.asset(
                             "assets/images/right (1).png",
                             color: Colors.white,
@@ -755,7 +755,7 @@ class About extends StatelessWidget {
                               child: Text(
                             "Technical and after".tr(),
                                   style: TextStyle(
-                                    fontSize: width / 21,
+                                    fontSize: width *0.055,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFFFFBC01),
                                     fontFamily: "Cairo",

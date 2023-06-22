@@ -89,7 +89,6 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
                    Container(
                     color: Colors.black,
                     width: double.infinity,
-                    height: 200,
                     child:Image.asset(
                       "assets/images/breadcrumb.cad63821.jpeg",
                       fit: BoxFit.cover,
@@ -121,9 +120,10 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
                           children: [
                             Text(
                         ">>".tr(),
-                      style:const TextStyle(
+                      style:
+                       TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 25,
+                        fontSize: width*0.090,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                       ),
@@ -155,9 +155,9 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
                       const SizedBox(width: 10),
                             Text(
                         "Advantages of creating".tr(),
-                      style:const TextStyle(
+                      style: TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 23,
+                        fontSize: width*0.060,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                       ),
@@ -175,7 +175,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             children: [
               const SizedBox(width: 10),
               Container(
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 color: Colors.amber,
               ),
                 width: 120,
@@ -214,7 +214,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
         ),
         Text(" Taha Abdelmoneim",
         style: TextStyle(
-        fontSize: 15,
+        fontSize: width*0.040,
         // ignore: deprecated_member_use
         color: Theme.of(context).toggleableActiveColor,
         fontFamily: "Cairo",
@@ -225,15 +225,15 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
           Text(
             "|",
             style: TextStyle(
-            fontSize: 25,
+            fontSize: width*0.060,
             // ignore: deprecated_member_use
             color: Theme.of(context).toggleableActiveColor
           ),
         ),
-        const SizedBox(width: 10),
+        const SizedBox(width: 5),
         Container(
-        width: 30,
-        height: 30,
+        width: width*0.1,
+        height: width*0.1,
         child: Image.asset(
         "assets/icons/comment.png",
         fit: BoxFit.cover,
@@ -252,8 +252,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
     children: [
       const SizedBox(width: 10),
      Text("Advantages of creating".tr(),
-      style:const TextStyle(
-        fontSize: 19,
+      style: TextStyle(
+        fontSize: width*0.065,
         fontFamily: "Cairo",
         fontWeight: FontWeight.w600,
         color: Colors.amber
@@ -274,7 +274,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "Advantages of creating title1".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.032,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -292,7 +292,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "Advantages of creating title2".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.032,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.green,
@@ -310,7 +310,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "Advantages of creating title3".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.032,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -341,8 +341,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "1- Flexibility".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -362,7 +362,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "1- Flexibility title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -386,8 +386,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "2- Performance".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -407,7 +407,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "2- Performance title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -430,8 +430,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "3- Safety".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -451,7 +451,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "3- Safety title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -474,8 +474,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "4- Ease of maintenance".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -495,7 +495,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "4- Ease of maintenance title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -527,8 +527,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "5- Complete control".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -548,7 +548,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "5- Complete control title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -570,8 +570,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "6- Personalization".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -591,7 +591,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "6- Personalization title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -613,8 +613,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "7- Innovation".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -634,7 +634,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "7- Innovation title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -656,8 +656,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "8- Speed".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -677,7 +677,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "8- Speed title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -699,8 +699,8 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             const SizedBox(width: 10),
             Text(
               "9- SEO search engine optimization".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.055,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.purple
@@ -720,7 +720,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "9- SEO search engine optimization title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -752,7 +752,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "end".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -770,7 +770,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "end2".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -788,7 +788,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
             Text(
               "end3".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.031,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -815,7 +815,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
                 "section:".tr(),
                 style: TextStyle(
                   color: Theme.of(context).toggleableActiveColor,
-                  fontSize: 25,
+                  fontSize: width*0.055,
                   fontFamily: "Cairo",
                   fontWeight: FontWeight.w800
                 ),
@@ -823,9 +823,9 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
               const SizedBox(width: 10),
               Text(
                 "sirves".tr(),
-                style:const TextStyle(
+                style: TextStyle(
                   color: Colors.amber,
-                  fontSize: 16,
+                  fontSize: width*0.050,
                   fontFamily: "Cairo",
                   fontWeight: FontWeight.w600
                 ),

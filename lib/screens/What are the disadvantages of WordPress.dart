@@ -89,7 +89,6 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                    Container(
                     color: Colors.black,
                     width: double.infinity,
-                    height: 200,
                     child:Image.asset(
                       "assets/images/breadcrumb.cad63821.jpeg",
                       fit: BoxFit.cover,
@@ -121,9 +120,9 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                           children: [
                             Text(
                         ">>".tr(),
-                      style:const TextStyle(
+                      style: TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 25,
+                        fontSize: width*0.070,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                       ),
@@ -131,9 +130,9 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                       const SizedBox(width: 10),
                             Text(
                         "blog".tr(),
-                      style:const TextStyle(
+                      style: TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 25,
+                        fontSize: width*0.070,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                       ),
@@ -145,9 +144,9 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                           children: [
                             Text(
                         ">>".tr(),
-                      style:const TextStyle(
+                      style: TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 25,
+                        fontSize: width*0.070,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                       ),
@@ -155,9 +154,9 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                       const SizedBox(width: 10),
                             Text(
                         "What are the".tr(),
-                      style:const TextStyle(
+                      style: TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 25,
+                        fontSize: width*0.070,
                         color: Colors.white,
                         fontWeight: FontWeight.w600
                       ),
@@ -213,7 +212,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
         ),
         Text(" Taha Abdelmoneim",
         style: TextStyle(
-        fontSize: 15,
+        fontSize: width *0.045,
         // ignore: deprecated_member_use
         color: Theme.of(context).toggleableActiveColor,
         fontFamily: "Cairo",
@@ -224,15 +223,15 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
           Text(
             "|",
             style: TextStyle(
-            fontSize: 25,
+            fontSize: width*0.070,
             // ignore: deprecated_member_use
             color: Theme.of(context).toggleableActiveColor
           ),
         ),
         const SizedBox(width: 10),
         Container(
-        width: 30,
-        height: 30,
+        width: width*0.050,
+        height: width*0.050,
         child: Image.asset(
         "assets/icons/comment.png",
         fit: BoxFit.cover,
@@ -251,8 +250,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
     children: [
       const SizedBox(width: 10),
       Text("What are the".tr(),
-      style:const TextStyle(
-        fontSize: 19,
+      style: TextStyle(
+        fontSize: width*0.060,
         fontFamily: "Cairo",
         fontWeight: FontWeight.w600,
         color: Colors.amber
@@ -272,8 +271,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "1- Weak security".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -293,7 +292,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "1- Weak security title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -324,8 +323,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "2- Limitation of modification".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -345,7 +344,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "2- Limitation of modification title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -369,8 +368,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "3- Lots of updates".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -390,7 +389,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "3- Lots of updates title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -422,8 +421,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "4- Slowness of the site".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -443,7 +442,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "4- Slowness of the site title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -465,8 +464,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "5- The sudden collapse of the site".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -486,7 +485,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "5- The sudden collapse of the site title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -508,8 +507,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "6- Compatibility".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -529,7 +528,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "6- Compatibility title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -551,8 +550,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "7- Maintenance".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -572,7 +571,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "7- Maintenance title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -594,8 +593,8 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             const SizedBox(width: 10),
             Text(
               "8- Technical support".tr(),
-              style:const TextStyle(
-              fontSize: 17,
+              style: TextStyle(
+              fontSize: width*0.045,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Colors.red
@@ -615,7 +614,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
             Text(
               "8- Technical support title".tr(),
               style: TextStyle(
-              fontSize: 11,
+              fontSize: width*0.030,
               fontFamily: "Cairo",
               fontWeight: FontWeight.w600,
               color: Theme.of(context).toggleableActiveColor,
@@ -650,17 +649,17 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                 "section:".tr(),
                 style: TextStyle(
                   color: Theme.of(context).toggleableActiveColor,
-                  fontSize: 25,
+                  fontSize: width*0.055,
                   fontFamily: "Cairo",
                   fontWeight: FontWeight.w800
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 5),
               Text(
                 "sirves".tr(),
-                style:const TextStyle(
+                style: TextStyle(
                   color: Colors.amber,
-                  fontSize: 16,
+                  fontSize: width*0.050,
                   fontFamily: "Cairo",
                   fontWeight: FontWeight.w600
                 ),
@@ -683,7 +682,7 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
                     "comments".tr(),
                     style: TextStyle(
                   color: Theme.of(context).toggleableActiveColor,
-                  fontSize: 22,
+                  fontSize: width*0.070,
                   fontFamily: "Cairo",
                   fontWeight: FontWeight.w600
                 ),
@@ -699,9 +698,9 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
               children: [
                 Text(
                 "Leave a response to this article".tr(),
-                style:const TextStyle(
+                style: TextStyle(
                   color: Colors.amber,
-                  fontSize: 25,
+                  fontSize: width*0.070,
                   fontFamily: "Cairo",
                   fontWeight: FontWeight.w600
                 ),

@@ -10,6 +10,7 @@ class BlogSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width,
@@ -21,14 +22,14 @@ class BlogSlider extends StatelessWidget {
                   Text(
     "blog".tr(),
     style: TextStyle(
-      fontSize: 30,
+      fontSize:size.height*0.095, 
       fontFamily: "Cairo",
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w900,
       color: Theme.of(context).primaryColorLight,
     ),
                   ),
                   Container(
-    width: 160,
+    width: width *0.40,
     height: 1.5,
     color: const Color(0xFFFFBC01),
                   ),
