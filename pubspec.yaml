@@ -46,6 +46,7 @@ dependencies:
   get: ^4.6.5
   get_storage: ^2.1.1
   flutter_blurhash: ^0.7.0
+  liquid_pull_to_refresh: ^3.0.1
 
 
 dev_dependencies:

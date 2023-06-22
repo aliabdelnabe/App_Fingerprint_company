@@ -76,6 +76,7 @@ class _RegisterState extends State<Register> {
     children: [
       Expanded(
         child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
           itemCount: 1,
           itemBuilder: (context, index){
             return Column(

@@ -1,17 +1,63 @@
-import 'package:arabic_english_app/screens/mobile_body.dart';
+
+
+ import 'package:arabic_english_app/screens/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class MotionGraphic extends StatelessWidget {
+
+class CardItem {
+  final String urlImage;
+  final String title;
+  final String titleData;
+
+  const CardItem(
+    {
+      required this.urlImage, 
+      required this.title, 
+      required this.titleData
+});
+}
+
+class MotionGraphic extends StatefulWidget {
   const MotionGraphic({super.key});
 
+
+  @override
+  State<MotionGraphic> createState() => _MotionGraphicState();
+}
+// ignore: unused_element
+  Future<void> _handleRefresh()  async {
+    
+    return await Future.delayed(const Duration(seconds: 1));
+  }
+
+
+late final PageController  pageController;
+  int pagNo = 0;
+class _MotionGraphicState extends State<MotionGraphic> {
+  List images = [
+    { "image":"assets/images/Motion Graphic1.png", 
+      "name" :  "Green Faramer",
+      "title" :  "yspace2"
+    },
+    { "image": "assets/images/Motion Graphic2.png", 
+      "name" :  "yspace",
+      "title" :  "yspace2"
+    },
+
+
+  ];
+ 
   @override
   Widget build(BuildContext context) {
+    
     final width = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       drawerScrimColor: Theme.of(context).selectedRowColor,
     backgroundColor: Theme.of(context).dividerColor,
@@ -38,13 +84,17 @@ class MotionGraphic extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                  width: 50,
-                  height: 50,
-            child: const Image(
-            image: AssetImage("assets/images/logo-transparent.png"),
-            color: Colors.white,
-          ),
-          ),
+                  width: 60,
+                  height: 60,
+              child: const Image(
+                height: 50,
+                width: 40,
+                fit: BoxFit.cover,
+              image: AssetImage("assets/images/logo-transparent.png"),
+              color: Colors.white,
+                      ),
+            ),
+          
             Container(
               width: 50,
               height: 50,
@@ -67,13 +117,19 @@ class MotionGraphic extends StatelessWidget {
   body:  Column(
     children: [
       Expanded(
-        child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index){
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Stack(
+        child: LiquidPullToRefresh(
+              onRefresh: _handleRefresh,
+              color:Theme.of(context).selectedRowColor,
+              height: 300,
+              backgroundColor: Theme.of(context).highlightColor,
+              animSpeedFactor: 1,
+              showChildOpacityTransition: true,
+          child:
+            
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Stack(
                   children:[
                    Container(
                     color: Colors.black,
@@ -109,8 +165,7 @@ class MotionGraphic extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 12,
-                          fontFamily: "Cairo",
-                          color: Colors.white
+                          fontFamily: "Cairo"
                         ),
                         ),
                         const SizedBox(width: 2),
@@ -123,18 +178,19 @@ class MotionGraphic extends StatelessWidget {
                       ),
                       ),
                       const SizedBox(width: 2),
-                      const Text(
+                       const Text(
                         ">>",
                         style: TextStyle(
                           fontSize: 12,
                           fontFamily: "Cairo",
+                          color: Colors.white
                         ),
                         ),
                         const SizedBox(width: 5),
-                        Text("text10".tr(),
+                        Text("text8".tr(),
                             style:const TextStyle(
                             fontSize: 12,
-                          color: Colors.white
+                            color: Colors.white
                       ),
                       ),
                     ]
@@ -142,186 +198,114 @@ class MotionGraphic extends StatelessWidget {
             ),
             ],
           ),
-          const SizedBox(height: 60,),
-         
-          
-          Container(
-            height: 550,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Motion Graphic1.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                  ),
-                ),
-                Container(
-                  height: 260,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
-                    ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+          const SizedBox(height: 100),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: images.length,
+                      itemBuilder: ( BuildContext context, int index) {
+                        return  Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("Motion graphic of the life of Imam SibawayhGreen farmer".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
+                          Container(
+                      width: width * 0.93,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius:const BorderRadius.only(
+                              topLeft: Radius.circular(18),
+                              topRight: Radius.circular(18),
                             ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text(  "Motion graphic of the life of Imam Sibawayh".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:14,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
+                            child: Material(
+                              child: InkWell(
+                                child: Image.asset(
+                                  "${images[index]['image']}",
+                                  fit: BoxFit.cover,
+                                  
+                                ),
                               ),
+                            )
+                          ),
+                          Container(
+                            width: size.width * 0.93,
+                            decoration: BoxDecoration(
+                              borderRadius:const BorderRadius.only(
+                                bottomLeft: Radius.circular(18),
+                                bottomRight: Radius.circular(18),
                               ),
+                                color:Theme.of(context).splashColor,
                             ),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TextButton(
+                                      onPressed: (){},
+                                      child: Text("${images[index]['name']}".tr()
+                                      ,style: TextStyle(
+                                        fontSize: 20,
+                                        fontFamily: "Cairo",
+                                        color: Theme.of(context).unselectedWidgetColor
+                                      ),
+                                      )),
+                                      TextButton(
+                                        onPressed: null,
+                                        child: Text("${images[index]['title']}".tr(),
+                                        overflow: TextOverflow.clip,
+                                        style: TextStyle(
+                                          fontSize:14,
+                                          fontFamily: "Cairo",
+                                          color: Theme.of(context).canvasColor,
+                                          fontWeight: FontWeight.w600
+                                        ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                                ElevatedButton(
+                                    onPressed: (){},
+                                  style: ElevatedButton.styleFrom(
+                                    maximumSize:size /2,
+                                    backgroundColor: const Color(0xffffbc01),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                       const Icon(Icons.arrow_back),
+                                      Text("bottonyspace".tr(),
+                                      overflow: TextOverflow.clip,
+                                      style:const TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: "Cairo",
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.white
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 15,)
+                              ],
+                            ),
+                          ),
+                          
                         ],
                       ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            height: 550,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Motion Graphic2.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                  ),
-                ),
-                Container(
-                  height: 260,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
                     ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("Motion graphi".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
-                            ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text("Motion graphi".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:16,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
-                              ),
-                              ),
-                            ),
+                    const SizedBox(height: 90,),
+              
                         ],
-                      ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 120,),
-          FooterBar(),
-            Container(
+                        );
+                      }
+                    ),
+                     FooterBar(),
+           Container(
             padding: const EdgeInsets.all(8.0),
             width: width,
             height: 40,
@@ -342,13 +326,18 @@ class MotionGraphic extends StatelessWidget {
           ],
         ),
       ),
-              ],
-            );
-          },
+                  ],
+                ),
+              ),
+
         ),
-      )
+      ),
+      
     ],
   ),
     );
   }
+
+  
 }
+

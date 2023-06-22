@@ -28,8 +28,8 @@ class ThemeService {
     shadowColor: Colors.black,
     // ignore: deprecated_member_use
     toggleableActiveColor: Colors.black,
-    selectedRowColor: Color(0xff46033A).withOpacity(0.3),
-    scaffoldBackgroundColor: Color.fromARGB(255, 245, 237, 237),
+    selectedRowColor:const Color(0xff46033A).withOpacity(0.3),
+    scaffoldBackgroundColor:const Color.fromARGB(255, 245, 237, 237),
     cardTheme:const CardTheme(
       color: Color(0xff5631A0)
     ),

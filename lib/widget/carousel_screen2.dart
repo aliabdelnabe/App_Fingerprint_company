@@ -95,6 +95,7 @@ class _CarouselScreenState extends State<CarouselScreen2> {
         SizedBox(
           height: 350,
           child: PageView.builder(
+            physics: const BouncingScrollPhysics(),
             controller: pageController,
             itemBuilder: (_, index){
               return AnimatedBuilder(animation:pageController , builder: (ctx,child) {

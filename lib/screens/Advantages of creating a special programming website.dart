@@ -79,6 +79,7 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
     children: [
       Expanded(
         child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
           itemCount: 1,
           itemBuilder: (context, index){
             return Column(

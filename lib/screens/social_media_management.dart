@@ -3,15 +3,71 @@ import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
-class SocialMediaManagement extends StatelessWidget {
+
+class CardItem {
+  final String urlImage;
+  final String title;
+  final String titleData;
+
+  const CardItem(
+    {
+      required this.urlImage, 
+      required this.title, 
+      required this.titleData
+});
+}
+
+class SocialMediaManagement extends StatefulWidget {
   const SocialMediaManagement({super.key});
 
+
+  @override
+  State<SocialMediaManagement> createState() => _SocialMediaManagementState();
+}
+// ignore: unused_element
+  Future<void> _handleRefresh()  async {
+    
+    return await Future.delayed(const Duration(seconds: 1));
+  }
+
+
+late final PageController  pageController;
+  int pagNo = 0;
+class _SocialMediaManagementState extends State<SocialMediaManagement> {
+  List images = [
+    { "image": "assets/images/lIDtFYTNFGHLtaQfkqXooxfEngIjWRHyMT5vwoHQ.png", 
+      "name" :  "yspace",
+      "title" :  "yspace2"
+    },
+    { "image": "assets/images/EyPKEiltZLE14cNLzo7MlEi9cTvGLUR01Kr25auu.png", 
+      "name" :  "yspace",
+      "title" :  "yspace2"
+    },
+    { "image": "assets/images/E9as4PiFKmQveTm2oXwyturFWIDRVuMInBpIowQo.png", 
+      "name" :  "yspace",
+      "title" :  "yspace2"
+    },
+    { "image": "assets/images/Social2.png.png", 
+      "name" :  "yspace",
+      "title" :  "yspace2"
+    },
+    { "image": "assets/images/D9SGiFIGzWCFMVmQIpyQ2sIHulczCcmUfRXvVnCx.png", 
+      "name" :  "yspace",
+      "title" :  "yspace2"
+    },
+
+
+  ];
+ 
   @override
   Widget build(BuildContext context) {
+    
     final width = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       drawerScrimColor: Theme.of(context).selectedRowColor,
     backgroundColor: Theme.of(context).dividerColor,
@@ -38,13 +94,17 @@ class SocialMediaManagement extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                  width: 50,
-                  height: 50,
-            child: const Image(
-            image: AssetImage("assets/images/logo-transparent.png"),
-            color: Colors.white,
-          ),
-          ),
+                  width: 60,
+                  height: 60,
+              child: const Image(
+                height: 50,
+                width: 40,
+                fit: BoxFit.cover,
+              image: AssetImage("assets/images/logo-transparent.png"),
+              color: Colors.white,
+                      ),
+            ),
+          
             Container(
               width: 50,
               height: 50,
@@ -67,13 +127,19 @@ class SocialMediaManagement extends StatelessWidget {
   body:  Column(
     children: [
       Expanded(
-        child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index){
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Stack(
+        child: LiquidPullToRefresh(
+              onRefresh: _handleRefresh,
+              color:Theme.of(context).selectedRowColor,
+              height: 300,
+              backgroundColor: Theme.of(context).highlightColor,
+              animSpeedFactor: 1,
+              showChildOpacityTransition: true,
+          child:
+            
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Stack(
                   children:[
                    Container(
                     color: Colors.black,
@@ -108,7 +174,7 @@ class SocialMediaManagement extends StatelessWidget {
                         ">>",
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 12,
                           fontFamily: "Cairo"
                         ),
                         ),
@@ -118,25 +184,23 @@ class SocialMediaManagement extends StatelessWidget {
                       style:const TextStyle(
                         fontFamily: "Cairo",
                         fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600
+                        color: Colors.white
                       ),
                       ),
                       const SizedBox(width: 2),
                        const Text(
                         ">>",
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 12,
                           fontFamily: "Cairo",
                           color: Colors.white
                         ),
                         ),
                         const SizedBox(width: 5),
-                        Text("text7".tr(),
+                        Text("text8".tr(),
                             style:const TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700
+                            fontSize: 12,
+                            color: Colors.white
                       ),
                       ),
                     ]
@@ -144,458 +208,113 @@ class SocialMediaManagement extends StatelessWidget {
             ),
             ],
           ),
-          const SizedBox(height: 60,),
-          Container(
-            height: size.height * 1,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Social5.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                    scale: 1,
-                    width: size.width ,
-                    height: size.height*0.60 ,
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
-                    ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+          const SizedBox(height: 100),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: images.length,
+                      itemBuilder: ( BuildContext context, int index) {
+                        return  Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("yspace".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
+                          Container(
+                      width: width * 0.93,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius:const BorderRadius.only(
+                              topLeft: Radius.circular(18),
+                              topRight: Radius.circular(18),
                             ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text("yspace2".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:14,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
+                            child: Material(
+                              child: InkWell(
+                                child: Image.asset(
+                                  "${images[index]['image']}",
+                                  fit: BoxFit.cover,
+                                  
+                                ),
                               ),
+                            )
+                          ),
+                          Container(
+                            width: size.width * 0.93,
+                            decoration: BoxDecoration(
+                              borderRadius:const BorderRadius.only(
+                                bottomLeft: Radius.circular(18),
+                                bottomRight: Radius.circular(18),
                               ),
+                                color:Theme.of(context).splashColor,
                             ),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TextButton(
+                                      onPressed: (){},
+                                      child: Text("${images[index]['name']}".tr()
+                                      ,style: TextStyle(
+                                        fontSize: 20,
+                                        fontFamily: "Cairo",
+                                        color: Theme.of(context).unselectedWidgetColor
+                                      ),
+                                      )),
+                                      TextButton(
+                                        onPressed: null,
+                                        child: Text("${images[index]['title']}".tr(),
+                                        overflow: TextOverflow.clip,
+                                        style: TextStyle(
+                                          fontSize:14,
+                                          fontFamily: "Cairo",
+                                          color: Theme.of(context).canvasColor,
+                                          fontWeight: FontWeight.w600
+                                        ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                                ElevatedButton(
+                                    onPressed: (){},
+                                  style: ElevatedButton.styleFrom(
+                                    maximumSize:size /2,
+                                    backgroundColor: const Color(0xffffbc01),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                       const Icon(Icons.arrow_back),
+                                      Text("bottonyspace".tr(),
+                                      overflow: TextOverflow.clip,
+                                      style:const TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: "Cairo",
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.white
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 15,)
+                              ],
+                            ),
+                          ),
+                          
                         ],
                       ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 80),
-          Container(
-            height: 500,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Social3.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                    width: size.width * 0.93,
-                    height: size.height * 0.20,
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
                     ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("yspace".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
-                            ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text("yspace2".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:14,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
-                              ),
-                              ),
-                            ),
+                    const SizedBox(height: 90,),
+              
                         ],
-                      ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 80),
-          Container(
-            height: 700,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Social4.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                    width: size.width * 0.93,
-                    height: size.height * 0.45,
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
+                        );
+                      }
                     ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("yspace".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
-                            ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text("yspace2".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:14,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
-                              ),
-                              ),
-                            ),
-                        ],
-                      ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 80),
-          Container(
-            height: size.height * 1,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Social1.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                    width: size.width* 0.93,
-                    height: size.height * 0.60,
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
-                    ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("yspace".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
-                            ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text("yspace2".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:14,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
-                              ),
-                              ),
-                            ),
-                        ],
-                      ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 80),
-          Container(
-            height: size.height * 1,
-            width: size.width * 0.93,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius:const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18),
-                  ),
-                  child: Image.asset(
-                    "assets/images/Social2.png.png",
-                    fit: BoxFit.cover,
-                    filterQuality:FilterQuality.high,
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  width: size.width * 0.93,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
-                    ),
-                      color:Theme.of(context).splashColor,
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextButton(
-                            onPressed: (){},
-                            child: Text("yspace".tr()
-                            ,style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Cairo",
-                              color: Theme.of(context).unselectedWidgetColor
-                            ),
-                            )),
-                            TextButton(
-                              onPressed: null,
-                              child: Text("yspace2".tr(),
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontSize:14,
-                                fontFamily: "Cairo",
-                                color: Theme.of(context).canvasColor,
-                                fontWeight: FontWeight.w600
-                              ),
-                              ),
-                            ),
-                        ],
-                      ),
-                      ElevatedButton(
-                          onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          maximumSize:size /2,
-                          backgroundColor: const Color(0xffffbc01),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             const Icon(Icons.arrow_back),
-                            Text("bottonyspace".tr(),
-                            overflow: TextOverflow.clip,
-                            style:const TextStyle(
-                              fontSize: 15,
-                              fontFamily: "Cairo",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white
-                            ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 80),
-              ],
-            ),
-          ),
-          const SizedBox(height: 60,),
-          FooterBar(),
+                     FooterBar(),
            Container(
             padding: const EdgeInsets.all(8.0),
             width: width,
@@ -617,13 +336,17 @@ class SocialMediaManagement extends StatelessWidget {
           ],
         ),
       ),
-              ],
-            );
-          },
+                  ],
+                ),
+              ),
+
         ),
-      )
+      ),
+      
     ],
   ),
     );
   }
+
+  
 }

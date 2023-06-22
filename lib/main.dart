@@ -5,9 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+import 'package:flutter/services.dart';
 
 bool _switchValue = true;
  main() async {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent
+  ));
   await GetStorage.init();
   // if your flutter > 1.7.8 :  ensure flutter activated
   WidgetsFlutterBinding.ensureInitialized();

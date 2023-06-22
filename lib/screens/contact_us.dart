@@ -74,6 +74,7 @@ class _ContactUsState extends State<ContactUs> {
     children: [
       Expanded(
         child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
           itemCount: 1,
           itemBuilder: (context, index){
             return Column(

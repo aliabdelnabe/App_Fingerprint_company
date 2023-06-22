@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:arabic_english_app/screens/blog.dart';
 import 'package:flutter/material.dart';
@@ -12,72 +11,21 @@ class SliderBlogWidget extends StatefulWidget {
 }
 
 class _SliderBlogWidgetState extends State<SliderBlogWidget> {
-  List<String> images = [
-    "assets/images/623.jpg",
-    "assets/images/622.jpg"
-  ];
-
-  List<String> title = [
-    "Advantages of creating",
-    "What are the"
-
-
-  ];
-  List<String> comment = [
-    "slider title2",
-    "slider title1"
-  ];
-  List<String> number = [
-    "163",
-    "112"
-  ];
-   late final PageController  controller;
-  int pagNo = 0;
-
-  late final Timer  carasouelTimer ;
-  // عداد الوقت للسليدير
-  Timer getTimer() {
-    return Timer.periodic(const Duration(seconds: 7), (timer) {
-      if(pagNo == 4){
-        pagNo = 0;
-      }
-      controller.animateToPage(
-        pagNo,
-        duration:const Duration(seconds: 1),
-        curve: Curves.easeInOutCirc
-        );
-        pagNo ++;
-     });
-  }
-
-  @override
-  void initState () {
-    controller = PageController(
-      initialPage: 0,
-      viewportFraction: 0.98
-      );
-      carasouelTimer = getTimer();
-    super.initState();
-  }
-
-  @override
-
-  void dispose(){
-    controller.dispose();
-    super.dispose();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Container(
-      child: Column(
-        children: [
-          Container(
+     child: Container(
             width: width ,
             child: PageView.builder(
+              scrollBehavior:const ScrollBehavior(
+                androidOverscrollIndicator: AndroidOverscrollIndicator.glow
+              ),
+              physics:const BouncingScrollPhysics(),
           //    controller: controller,
-              itemCount: images.length,
+              itemCount: 2,
               itemBuilder:(context, index){
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -105,7 +53,7 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                             topRight: Radius.circular(20),
                               ),
                               child: Image.asset(
-                                images[index] ,
+                                "assets/images/623.jpg" ,
                                 fit: BoxFit.cover,
                                 ),
                             ),
@@ -141,7 +89,7 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                               builder: (context) => const Blog()));
                                   },
                                   child: Text(
-                                    title[index].tr(),
+                                   "alishaalan".tr(),
                                     style: TextStyle(
                                       fontFamily: "Cairo",
                                       fontSize: width*0.055,
@@ -150,7 +98,7 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                                   ),
                                 ),
                                 Text(
-                                  comment[index].tr(),
+                                  "ali".tr(),
                                   style: TextStyle(
                                     fontFamily: "Cairo",
                                     fontSize: width *0.040,
@@ -178,7 +126,7 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
                           ),),
                         SizedBox(width: width *0.09),
                             Text(
-                              number[index].tr(),
+                              "120".tr(),
                               ),
                               Container(
                           width: width*0.050,
@@ -205,8 +153,6 @@ class _SliderBlogWidgetState extends State<SliderBlogWidget> {
             },
             ),
           ),
-        ],
-      ),
     );
   }
 }
