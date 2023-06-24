@@ -12,6 +12,7 @@ class FingerprintServices5 extends StatelessWidget {
 
   final double width;
 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,8 +20,8 @@ class FingerprintServices5 extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: width* 0.90,
-            height: 230,
+            width: width *0.80,
+            height:200,
             child: SvgPicture.asset("assets/images/image_service_design_photos.svg",
             fit: BoxFit.cover,
             ),

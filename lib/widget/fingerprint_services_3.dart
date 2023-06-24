@@ -19,8 +19,8 @@ class FingerprintServices3 extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: width * 0.73,
-            height: 300,
+            width: width * 0.70,
+            height: 288,
             child: SvgPicture.asset("assets/images/image_service_ads.svg",
             fit: BoxFit.cover,
             ),

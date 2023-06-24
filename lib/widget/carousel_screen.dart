@@ -66,10 +66,10 @@ class _CarouselScreenState extends State<CarouselScreen> {
                   return GestureDetector(
                     onTap: () => carouselController.animateToPage(entery.key),
                     child: Container(
-                      width: currentIndex == entery.key ? 8 : 7,
-                      height: 7.0,
+                      width: currentIndex == entery.key ? 12 : 10,
+                      height: 10.0,
                       margin: const EdgeInsets.symmetric(
-                        horizontal: 1.2
+                        horizontal: 2.2
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),

@@ -147,7 +147,7 @@ class _CustomerReviewsState extends State<CustomerReviews> {
           const SizedBox(height: 40,),
           Container(
               width: double.infinity,
-            height: 1500,
+            height: 1400,
               child: Column(
               children: [
                 ClipRRect(
@@ -441,7 +441,6 @@ class _CustomerReviewsState extends State<CustomerReviews> {
               ],
               ),
           ),
-          const SizedBox(height: 50,),
           Container(
             width: double.infinity,
             height: 680,

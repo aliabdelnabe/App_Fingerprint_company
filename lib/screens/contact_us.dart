@@ -19,7 +19,7 @@ class _ContactUsState extends State<ContactUs> {
     final width = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-            drawerScrimColor: Theme.of(context).selectedRowColor,
+           drawerScrimColor: Theme.of(context).primaryColor,
      backgroundColor: Theme.of(context).disabledColor,
       drawer: const MyHeadreDrawer(),
       appBar:AppBar(
@@ -119,7 +119,7 @@ class _ContactUsState extends State<ContactUs> {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                        "customer reviews".tr(),
+                        "contact us".tr(),
                       style: TextStyle(
                         fontFamily: "Cairo",
                         fontSize: 20,
@@ -136,7 +136,7 @@ class _ContactUsState extends State<ContactUs> {
           const SizedBox(height: 40,),
           Container(
               width: width * 0.95,
-            height: 1500,
+            height: 1550,
               child: Column(
               children: [
                 ClipRRect(
@@ -151,7 +151,6 @@ class _ContactUsState extends State<ContactUs> {
                   ),
                 ),
                 Container(
-                    height: 740,
                     width: width * 0.94,
                     decoration: BoxDecoration(
                       boxShadow:const [
@@ -169,13 +168,24 @@ class _ContactUsState extends State<ContactUs> {
                     child: Column(
                       children: [
                         const SizedBox(height: 25,),
-                              Text("Write your review".tr()
+                            Text("always_love_help".tr()
                               ,style: TextStyle(
-                                fontSize: 30,
+                                fontSize: width * 0.060,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w800,
                                 color: Theme.of(context).primaryColorLight
                               ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                child: Text("Feel_free_get_in_touch".tr()
+                                ,overflow: TextOverflow.fade,
+                                style: TextStyle(
+                                  fontSize: width * 0.035,
+                                  fontFamily: "Cairo",
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                ),
                               ),
                               const SizedBox(height: 40,),
                         Container(
@@ -411,7 +421,8 @@ class _ContactUsState extends State<ContactUs> {
                             )
                             
                           ],
-                        )
+                        ),
+                        const SizedBox(height: 20)
                       ],
                         ),
                       ],

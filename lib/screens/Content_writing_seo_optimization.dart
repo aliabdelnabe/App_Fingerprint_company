@@ -5,7 +5,6 @@ import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
 
@@ -110,16 +109,7 @@ class _ContentWritingSeoOptimizationState extends State<ContentWritingSeoOptimiz
   body:  Column(
     children: [
       Expanded(
-        child: LiquidPullToRefresh(
-              onRefresh: _handleRefresh,
-              color:Theme.of(context).selectedRowColor,
-              height: 300,
-              backgroundColor: Theme.of(context).highlightColor,
-              animSpeedFactor: 1,
-              showChildOpacityTransition: true,
-          child:
-            
-              SingleChildScrollView(
+        child:SingleChildScrollView(
                 child: Column(
                   children: [
                     Stack(
@@ -180,7 +170,7 @@ class _ContentWritingSeoOptimizationState extends State<ContentWritingSeoOptimiz
                         ),
                         ),
                         const SizedBox(width: 5),
-                        Text("text8".tr(),
+                        Text("text13".tr(),
                             style:const TextStyle(
                             fontSize: 12,
                             color: Colors.white
@@ -324,8 +314,6 @@ class _ContentWritingSeoOptimizationState extends State<ContentWritingSeoOptimiz
               ),
 
         ),
-      ),
-      
     ],
   ),
     );

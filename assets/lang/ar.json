@@ -46,7 +46,7 @@
     "Advertising photography"  :  "التصوير الإعلانى",
     "advertisements"  :  "إعلانات",
     "Motion Graphic"  :  "موشن جرافيك",
-    "Google Ads"  :  "Google Ads",
+    "Google_Ads"  :  "Google Ads",
     "Production of Motion"  :   "انتاج فديوهات الMotion Graphic",
     "Content Writing and SEO"  :  "SEO & Content Creation",
     "Content Writing and SEO title1"  :  "للـ SEO قوة .. اكتسبها معنا! في بصمة لدينا كتَاب مبدعين لديهم",
@@ -59,7 +59,7 @@
     "ERP System title2"  :  "ERP System...",
 
  
-
+    ""  :  " ماهى عيوب الوورد",
     "Important Links" : "روابط هامة",
     "Important Links1" : "عملائنا",
     "Important Links2" : "الخدمات",
@@ -226,7 +226,12 @@
     "strategies"  :  "لكل عميل من عملائنا",
     "slider title1"  :  "وردبريس هو نظام إدارة محتوى مفتوح المصدر شائع يستخدم لإنشاء مواقع الويب والمدونات. ومع",
     "slider title2"  :  "البرمجة الخاصة هي برمجة الموقع من الصفر باستخدام للغات برمجية معينه وكتابة الاكواد من"
-    ,"Taha Abdelmoneim"  :  "طه عبدالمنعم"
+    ,"Taha Abdelmoneim"  :  "طه عبدالمنعم",
+    "why_should_fingerprint"  :  "لماذا يجب أن تكون بصمة هي إختيارك الأول",
+    "always_love_help"  :  "نود دائماً مساعدتك!",
+    "Feel_free_get_in_touch"  :  "لا تتردد في الإتصال بإستخدام النموذج أدناه. نحن نحب أن\n نسمع الأفكار الخاصة بك والإجابة على أي أسئلة قد تكون لديكم!"
+
+
 
 
 

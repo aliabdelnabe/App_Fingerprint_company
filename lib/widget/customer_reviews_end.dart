@@ -19,7 +19,6 @@ class CustomerReviewsEND extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
             Text(
               "customer reviews".tr(),
               style: TextStyle(

@@ -15,14 +15,13 @@ import 'package:arabic_english_app/widget/fingerprint_services_7.dart';
 import 'package:arabic_english_app/widget/fingerprint_services_8.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
+import 'package:arabic_english_app/widget/slider_blog_widget.dart';
 import 'package:arabic_english_app/widget/we_are_on_time.dart';
 import 'package:arabic_english_app/widget/we_create_great.dart';
 import 'package:arabic_english_app/widget/we_value_integity.dart';
 import 'package:arabic_english_app/widget/you_speak.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-
 import 'package:localize_and_translate/localize_and_translate.dart';
 
 class MyMobileBody extends StatelessWidget {
@@ -91,23 +90,44 @@ class MyMobileBody extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: LiquidPullToRefresh(
-              onRefresh: _handleRefresh,
-              color:Theme.of(context).selectedRowColor,
-              height: 300,
-              backgroundColor: Colors.white,//Theme.of(context).highlightColor,
-              animSpeedFactor: 1,
-              showChildOpacityTransition: true,
-              child: ListView.builder(
+            child:  ListView.builder(
                 shrinkWrap: true,
                 physics: const BouncingScrollPhysics(),
-                itemCount: 2,
+                itemCount: 1,
                 itemBuilder:(context, index) {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const CarouselScreen(),
-                      const SizedBox(height: 60),
+                      const SizedBox(height: 30),
+                      Container(
+                        width: double.infinity,
+                        child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Text(
+                                "why_should_fingerprint".tr(),
+                                style: TextStyle(
+                                    fontSize: width*0.040,
+                                    fontFamily: "Cairo",
+                                    fontWeight: FontWeight.w700,
+                                    color: Theme.of(context).primaryColorLight,
+                                                      ),
+                                ),
+                            ),
+                          Container(
+                          width: width*0.75,
+                          height: 1.5,
+                          color: const Color(0xFFFFBC01),
+                          ),
+                          const SizedBox(height: 30),
+
+                          ],
+                        ),
+                      ),
+                      
                       YouSpeak(width: width),
                       WeValueIntegrity(width: width),
                       ContentWriting(width: width),
@@ -190,8 +210,7 @@ class MyMobileBody extends StatelessWidget {
                         ),
                       ),
                       const TheNumberOfExperiencedClients(),
-                      const SizedBox(height: 60,),
-                     // const SliderBlogWidget(),
+                      CustomerReviews1(width: width),
                       CustomerReviewsEND(width: width),
                         const SizedBox(height: 80,),
                       FooterBar(),
@@ -221,7 +240,6 @@ class MyMobileBody extends StatelessWidget {
                 },
               ),
             ),
-          )
         ],
       ),
     );

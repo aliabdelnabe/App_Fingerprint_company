@@ -46,7 +46,7 @@
     "Advertising photography"  :  "Advertising photography",
     "advertisements"  :  "advertisements",
     "Motion Graphic"  :  "Motion Graphic",
-    "Google Ads"  :  "Google Ads",
+    "Google_Ads"  :  "Google Ads",
     "Production of Motion"  :  "Production of Motion Graphic Videos",
     "Content Writing and SEO"  :  "Content Writing and SEO",
     "Content Writing and SEO title1"  :  "SEO has power.. Earn it with us! In Injaz Media, we have\ncreative writers who have knowledge of consumer behavior",
@@ -90,6 +90,7 @@
     "maa"  :  "Motion Graphic",
     "login"  :  "Login",
     "register" :  "Register",
+    ""  :  "Production of Video",
 
 
     "yspace"  :  "yspace",
@@ -220,7 +221,10 @@
     "Taha Abdelmoneim"  :  "Taha Abdelmoneim",
     "end"  :  "Complete SEO control.Well-designed programming websites are a great investment that can be worth the effort if you get the desired results.",
     "end2"  :  "The security of a custom website depends largely on the skills of the website developer or designer, which could present potential security issues if there are overlooked security flaws.",
-    "end3"  :  "But in general, we can say that security in private programming is better than WordPress."
+    "end3"  :  "But in general, we can say that security in private programming is better than WordPress.",
+    "why_should_fingerprint"  :  "Why should a fingerprint be your first choice",
+    "always_love_help"  :  "We'd always love to help you!",
+    "Feel_free_get_in_touch"  :  "Feel free to get in touch using the form below. We'd\n love to hear your ideas and answer any questions you\n may have!"
 
 
 }

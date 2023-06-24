@@ -38,7 +38,7 @@ class ThemeService {
 
   );
   final darkThem = ThemeData.dark().copyWith(
-    primaryColor: const Color.fromARGB(255, 28, 39, 53) ,
+    primaryColor: Color.fromARGB(255, 39, 52, 68) ,
     cardColor:const Color(0xFF111827),
     appBarTheme: const AppBarTheme(),
     dividerColor:const Color.fromARGB(255, 22, 33, 46),

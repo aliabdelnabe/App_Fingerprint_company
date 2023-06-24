@@ -5,7 +5,6 @@ import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 
 
@@ -117,16 +116,7 @@ class _MotionGraphicState extends State<MotionGraphic> {
   body:  Column(
     children: [
       Expanded(
-        child: LiquidPullToRefresh(
-              onRefresh: _handleRefresh,
-              color:Theme.of(context).selectedRowColor,
-              height: 300,
-              backgroundColor: Theme.of(context).highlightColor,
-              animSpeedFactor: 1,
-              showChildOpacityTransition: true,
-          child:
-            
-              SingleChildScrollView(
+        child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Stack(
@@ -168,28 +158,28 @@ class _MotionGraphicState extends State<MotionGraphic> {
                           fontFamily: "Cairo"
                         ),
                         ),
-                        const SizedBox(width: 2),
+                         SizedBox(width: width * 0.010),
                         Text(
                         "Services".tr(),
-                      style:const TextStyle(
+                      style: TextStyle(
                         fontFamily: "Cairo",
-                        fontSize: 14,
+                        fontSize: width * 0.030,
                         color: Colors.white
                       ),
                       ),
-                      const SizedBox(width: 2),
-                       const Text(
+                       SizedBox(width: width * 0.010),
+                        Text(
                         ">>",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: width * 0.030,
                           fontFamily: "Cairo",
                           color: Colors.white
                         ),
                         ),
                         const SizedBox(width: 5),
-                        Text("text8".tr(),
-                            style:const TextStyle(
-                            fontSize: 12,
+                        Text("text11".tr(),
+                            style: TextStyle(
+                            fontSize: width * 0.028,
                             color: Colors.white
                       ),
                       ),
@@ -329,10 +319,7 @@ class _MotionGraphicState extends State<MotionGraphic> {
                   ],
                 ),
               ),
-
         ),
-      ),
-      
     ],
   ),
     );
