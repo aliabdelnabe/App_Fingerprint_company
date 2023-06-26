@@ -51,10 +51,18 @@ class _AdvantagesOfCreatingASpecialProgrammingWebsiteState extends State<Advanta
                   Container(
                   width: 50,
                   height: 50,
-            child: const Image(
-            image: AssetImage("assets/images/logo-transparent.png"),
-            color: Colors.white,
-          ),
+            child: InkWell(
+              onTap:(){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+              },
+              child: const Image(
+              image: AssetImage("assets/images/logo-transparent.png"),
+              color: Colors.white,
+                      ),
+            ),
           ),
             Container(
               width: 50,

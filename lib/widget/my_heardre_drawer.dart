@@ -289,10 +289,18 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                     Container(
                       height: 60,
                       width: 80,
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        fit: BoxFit.cover,
-                        )
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+                        },
+                        child: Image.asset(
+                          "assets/images/logo.png",
+                          fit: BoxFit.cover,
+                          ),
+                      )
                         ),
                         IconButton(onPressed: (){
                       Navigator.pop(

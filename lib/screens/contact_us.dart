@@ -1,9 +1,11 @@
 import 'package:arabic_english_app/screens/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
+import 'package:arabic_english_app/widget/social_media_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({super.key});
@@ -19,7 +21,7 @@ class _ContactUsState extends State<ContactUs> {
     final width = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-           drawerScrimColor: Theme.of(context).primaryColor,
+           //drawerScrimColor: Theme.of(context).primaryColor,
      backgroundColor: Theme.of(context).disabledColor,
       drawer: const MyHeadreDrawer(),
       appBar:AppBar(
@@ -46,10 +48,18 @@ class _ContactUsState extends State<ContactUs> {
                   Container(
                   width: 50,
                   height: 50,
-            child: const Image(
-            image: AssetImage("assets/images/logo-transparent.png"),
-            color: Colors.white,
-          ),
+            child:  InkWell(
+              onTap: (){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+              },
+              child:const Image(
+              image: AssetImage("assets/images/logo-transparent.png"),
+              color: Colors.white,
+                      ),
+            ),
           ),
             Container(
               width: 50,
@@ -136,8 +146,7 @@ class _ContactUsState extends State<ContactUs> {
           const SizedBox(height: 40,),
           Container(
               width: width * 0.95,
-            height: 1550,
-              child: Column(
+                child: Column(
               children: [
                 ClipRRect(
                   borderRadius:const BorderRadius.only(
@@ -309,7 +318,9 @@ class _ContactUsState extends State<ContactUs> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 TextButton(
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    launch('tel:+201090844348');
+                                  },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -336,7 +347,12 @@ class _ContactUsState extends State<ContactUs> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 TextButton(
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+                                  },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -357,71 +373,7 @@ class _ContactUsState extends State<ContactUs> {
                       ),
                       // مواقع التواصل
                       const SizedBox(height: 6),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                
-                                TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                child: Image.asset("assets/icons/facebook (1).png",color: Theme.of(context).canvasColor,),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                child: Image.asset("assets/icons/twitter-sign.png",color: Theme.of(context).canvasColor,),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                child: Image.asset("assets/icons/instagram.png",color: Theme.of(context).canvasColor,),
-                              ),
-                            ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                child: Image.asset("assets/icons/linkedin-logo.png",color:Theme.of(context).canvasColor,),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                child: Image.asset("assets/icons/snapchat (1).png",color: Theme.of(context).canvasColor,),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                width: 25,
-                                height: 25,
-                                child: Image.asset("assets/icons/whatsapp (1).png",color: Theme.of(context).canvasColor,),
-                              ),
-                            ),],
-                            )
-                            
-                          ],
-                        ),
+                      SocialMediaWidget(),
                         const SizedBox(height: 20)
                       ],
                         ),

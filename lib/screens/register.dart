@@ -48,10 +48,18 @@ class _RegisterState extends State<Register> {
                   Container(
                   width: 50,
                   height: 50,
-            child: const Image(
-            image: AssetImage("assets/images/logo-transparent.png"),
-            color: Colors.white,
-          ),
+            child: InkWell(
+              onTap:(){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+              },
+              child: const Image(
+              image: AssetImage("assets/images/logo-transparent.png"),
+              color: Colors.white,
+                      ),
+            ),
           ),
             Container(
               width: 50,
@@ -138,8 +146,7 @@ class _RegisterState extends State<Register> {
           const SizedBox(height: 40,),
           Container(
               width: size.width * 0.93,
-              height: 700,
-              child: Column(
+               child: Column(
               children: [
                
                 Container(
@@ -340,7 +347,7 @@ class _RegisterState extends State<Register> {
                                 ),
                                 onPressed: (){},
                                 child: Text("register".tr(),
-                                style: TextStyle(
+                                style:const TextStyle(
                               fontSize: 17,
                                 fontFamily: "Cairo",
                                 fontWeight: FontWeight.w900,

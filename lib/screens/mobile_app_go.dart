@@ -83,13 +83,18 @@ class _MobileAppGoState extends State<MobileAppGo> {
                   Container(
                   width: 60,
                   height: 60,
+              child: InkWell(
+              onTap:(){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+              },
               child: const Image(
-                height: 50,
-                width: 40,
-                fit: BoxFit.cover,
               image: AssetImage("assets/images/logo-transparent.png"),
               color: Colors.white,
                       ),
+            ),
             ),
           
             Container(

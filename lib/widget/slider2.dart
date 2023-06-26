@@ -101,7 +101,7 @@ class _blug2State extends State<blug2> {
     return Column(
       children: [
         SizedBox(
-          height: 500,
+          height: 520,
           child: PageView.builder(
             physics: const BouncingScrollPhysics(),
             controller: pageController,
@@ -197,6 +197,7 @@ class _blug2State extends State<blug2> {
                               Text(
                                 numberView[index],
                                 ),
+                                SizedBox(width: width * 0.020,),
                                 Container(
                             width: 25,
                             height: 25,
@@ -209,7 +210,7 @@ class _blug2State extends State<blug2> {
                               ),
                               ],
                             ),
-                                const SizedBox(height: 15,)
+                                const SizedBox(height: 25,)
                               ],
                             ),
                           ),

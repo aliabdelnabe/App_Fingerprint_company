@@ -48,10 +48,18 @@ class _LogInState extends State<LogIn> {
                   Container(
                   width: 50,
                   height: 50,
-            child: const Image(
-            image: AssetImage("assets/images/logo-transparent.png"),
-            color: Colors.white,
-          ),
+            child: InkWell(
+              onTap:(){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+              },
+              child: const Image(
+              image: AssetImage("assets/images/logo-transparent.png"),
+              color: Colors.white,
+                      ),
+            ),
           ),
             Container(
               width: 50,
@@ -138,8 +146,7 @@ class _LogInState extends State<LogIn> {
           const SizedBox(height: 40,),
           Container(
               width: size.width * 0.93,
-            height: 1850,
-              child: Column(
+               child: Column(
               children: [
                 ClipRRect(
                   borderRadius:const BorderRadius.only(

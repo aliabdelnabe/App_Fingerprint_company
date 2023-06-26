@@ -1,12 +1,37 @@
 
+import 'package:arabic_english_app/screens/contact_us.dart';
+import 'package:arabic_english_app/screens/mobile_body.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FooterBar extends StatelessWidget {
-  
+
+
+_launchUrl(String url) async{
+  if(await canLaunch(url)){
+    await launch(url);
+  }else {
+    throw 'could not launch $url';
+  }
+}
+
+
+
+
+  void openWhatsApp(String phoneNumber,String message) async {
+    String url = "Whatsapp://send?phone=$phoneNumber&text=$message";
+
+    if(await canLaunch(url)){
+      await launch(url);
+    }else{
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final Uri phoneNumber = Uri.parse('tel:+201090844348');
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width,
@@ -22,6 +47,7 @@ class FooterBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+               // ignore: avoid_unnecessary_containers
                Container(
                  child: Text(
                   "text3".tr(),
@@ -35,7 +61,13 @@ class FooterBar extends StatelessWidget {
                ),
                const SizedBox(width: 4),
                 ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const ContactUs()));
+                  }, 
+                  // ignore: sort_child_properties_last
                   child:  Text(
                     "text4".tr(),
                     style:const TextStyle(
@@ -62,10 +94,10 @@ class FooterBar extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
+                    const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children:const [
+                      children:[
                         Text(
                           "fingerprint",
                           style: TextStyle(
@@ -127,6 +159,7 @@ class FooterBar extends StatelessWidget {
             child:Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+              // ignore: avoid_unnecessary_containers
               Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -232,6 +265,7 @@ class FooterBar extends StatelessWidget {
                 ],
               ),
             ),
+              // ignore: avoid_unnecessary_containers
               Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -326,6 +360,7 @@ class FooterBar extends StatelessWidget {
                 ],
               ),
             ),
+              // ignore: avoid_unnecessary_containers
               Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -341,10 +376,15 @@ class FooterBar extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     TextButton(
-                      onPressed: (){},
-                      child: Row(
+                      onPressed: (){
+                        Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+                      },
+                      child:const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children:const [
+                        children: [
                           Icon(Icons.email_rounded,color: Colors.white,),
                           Text("info@fingerprintm.com",
                           style: TextStyle(
@@ -358,12 +398,15 @@ class FooterBar extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: (){},
-                      child: Row(
+                      onPressed: (){
+                       //FlutterPhoneDirectCaller.callNumber('+201090844348');
+                      launch('tel:+201090844348');
+                      },
+                      child:const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children:const [
+                        children: [
                           Icon(Icons.call_rounded,color: Colors.white,),
-                          Text("201090844348",
+                          Text("+201090844348",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 17,
@@ -374,8 +417,10 @@ class FooterBar extends StatelessWidget {
                         ],
                       ),
                     ),
-                    TextButton(
-                      onPressed: (){},
+                    MaterialButton(
+                      onPressed: (){
+                          launch('https://api.whatsapp.com/send/?phone=201090844348&text&type=phone_number&app_absent=0');
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -399,6 +444,7 @@ class FooterBar extends StatelessWidget {
                 ],
               ),
             ),
+              // ignore: avoid_unnecessary_containers
               Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -417,7 +463,10 @@ class FooterBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              launch('https://www.facebook.com/fingerprintmedia1?mibextid=ZbWKwL');
+                            },
+                            // ignore: sized_box_for_whitespace
                             child: Container(
                               width: 25,
                               height: 25,
@@ -425,7 +474,10 @@ class FooterBar extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              launch('https://twitter.com/?lang=ar');
+                            },
+                            // ignore: sized_box_for_whitespace
                             child: Container(
                               width: 25,
                               height: 25,
@@ -433,7 +485,10 @@ class FooterBar extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              launch('https://www.instagram.com/fingerprint_media_1/?igshid=ZDdkNTZiNTM%3D');
+                            },
+                            // ignore: sized_box_for_whitespace
                             child: Container(
                               width: 25,
                               height: 25,
@@ -446,7 +501,9 @@ class FooterBar extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              launch('https://www.linkedin.com/in/finger-print-2528361b1');
+                            },
                             child: Container(
                               width: 25,
                               height: 25,
@@ -454,7 +511,9 @@ class FooterBar extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              launch('https://www.snapchat.com/add/fingerprintm');
+                            },
                             child: Container(
                               width: 25,
                               height: 25,
@@ -462,7 +521,9 @@ class FooterBar extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              launch('https://wa.me/201090844348');
+                            },
                             child: Container(
                               width: 25,
                               height: 25,

@@ -36,6 +36,7 @@ class CustomerReviews1 extends StatelessWidget {
             const SizedBox(height: 30),
             const blug2(),
 
+
           ],
         ));
   }
