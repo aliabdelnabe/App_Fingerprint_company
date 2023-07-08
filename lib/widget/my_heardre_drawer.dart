@@ -19,6 +19,13 @@ import 'package:arabic_english_app/them.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+String stringResponse = "";
+  Map <String, dynamic>  mapResponse = {};
+  Map <String, dynamic>  dataResponse = {};
+  List  listResponse=[];
 
 // ignore: non_constant_identifier_names
 var indexClicked = 0;
@@ -30,6 +37,24 @@ class MyHeadreDrawer extends StatefulWidget {
 }
 
 class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
+  Future apicall() async {
+    http.Response response;
+    //response = await http.get(Uri.parse("https://reqres.in/api/users?page=2"));
+    response = await http.get(Uri.parse("https://backend.fingerprintm.com/api/getSections?active=true"));
+    if (response.statusCode == 200) {
+      setState(() {
+        //stringResponse =  response.body;
+        mapResponse = json.decode(response.body);
+        //dataResponse = mapResponse["data"];
+        listResponse = mapResponse["data"];
+      });
+    }
+  }
+  @override
+  void initState () {
+    apicall();
+    super.initState();
+  }
   
   var currwnPage =DrawerSections.MyMobileBody;
   int selected1 = 0;
@@ -53,227 +78,11 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
       child:  Expanded(
         
         child: ListView.builder(
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
         itemCount: 1,
         itemBuilder: (context, index) {
-          return  /*  Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              MyHeaderDrawer(),
-               Divider(
-              color: Theme.of(context).canvasColor,
-                height: 10,
-                thickness: 0.5,
-                indent: 3,
-              ),
-              Container(
-                padding: EdgeInsets.only(top:15),
-                child: Column(
-                  
-                ),
-              ),
-              MyDrawerList(),
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).errorColor,
-                ),
-                child: TextButton(
-                      style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.black,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => const LogIn()));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                           Icon(Icons.lock,color: Theme.of(context).accentColor,),
-                          const SizedBox(width: 5.0),
-                          Text('login'.tr(),
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: "Cairo",
-                            fontWeight: FontWeight.w600,
-                            color:Theme.of(context).accentColor,
-                          ),
-                          ),
-                        ],
-                      ),
-                    ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).errorColor,
-                ),
-                child: TextButton(
-                      style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.black,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => const Register()));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 20,
-                            height: 20,
-                            child: Image.asset(
-                              "assets/icons/user-male.png",
-                              color: Theme.of(context).accentColor,)),
-                          const SizedBox(width: 8.0),
-                          Text('register'.tr(),
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: "Cairo",
-                            fontWeight: FontWeight.w600,
-                            color:Theme.of(context).accentColor,
-                          ),
-                          ),
-                        ],
-                      ),
-                    ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).errorColor,
-                ),
-                child: TextButton(
-                      style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.black,
-                      ),
-                      onPressed: () {
-                        translator.setNewLanguage(
-                          context,
-                          newLanguage: translator.currentLanguage == 'en' ? 'ar':'en',
-                          remember: true,
-                          restart: true,
-                        );
-                        setState(() {
-                          _bool = !_bool;
-                        });
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          const SizedBox(width: 5.0),
-                          Text('buttonTitle'.tr(),
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: "Cairo",
-                            fontWeight: FontWeight.w600,
-                            color:Theme.of(context).accentColor,
-                          ),
-                          ),
-                          const SizedBox(width: 8,),
-                          AnimatedCrossFade(
-                            firstChild:
-                            Container(
-                              height: 20,
-                              width: 20,
-                              child: Image.asset("assets/icons/saudi-arabia.png")),
-                            secondChild: 
-                            Container(
-                              height: 20,
-                              width: 20,
-                              child: Image.asset("assets/icons/united-states.png")),
-                            crossFadeState:
-                            _bool ? CrossFadeState.showFirst :CrossFadeState.showSecond , 
-                            duration:const Duration(milliseconds: 1)
-                            )
-                        ],
-                      ),
-                    ),
-              ),
-                const Divider(
-              color: Colors.grey,
-                height: 10,
-                thickness: 3,
-                indent: 40,
-                endIndent: 40,
-              ),
-              TextButton(
-                  onPressed: (){
-                    setState((){
-                      ThemeService().changeTheme() ;
-                      click = !click;
-                    });
-                  },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                          children: [
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                colors:  click ?
-                                [
-                                  const Color(0xFF30218f),
-                                  const Color.fromARGB(255, 122, 109, 204),
-                                ]
-                                :[
-                                const Color(0xffffcc81),
-                                const Color(0xffff6e30),
-                                ]
-                              )
-                            )
-                          ),
-                          AnimatedPositioned(
-                            duration:  const Duration(milliseconds: 100),
-                            top: PositionShadow,
-                            right: PositionShadow,
-                            child: Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Theme.of(context).dividerColor,
-                              ),
-                            ),
-                          ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          click ?  "good night".tr() : "Good morning".tr(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: "Cairo",
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).canvasColor,
-                          ),
-                        )
-                      ],
-                    ) ,
-                  ),
-                  
-            ],
-          );*/
-         
-
-     
-           Column(
+          return Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -427,34 +236,51 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                   ],
                 ),
                 children:[
-                        ListTile(
-                          leading:
-                            TextButton(
-                              onPressed: (){
-                                indexClicked = 3;
-                                Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                builder: (context) => const WebsiteDesignScreen()));
-                              },
-                              child: Text(
-                                "sirves".tr(),
-                                style: TextStyle(
-                                color:indexClicked == 3
-                      ? Defaults.drawerItemSelectColor
-                      : Theme.of(context).toggleableActiveColor,
-                                fontFamily: "Cairo",
-                                fontWeight: FontWeight.w600
-                              ),
-                                )),
-                          ),
-                            Divider(
+                  ListView.builder(
+                              shrinkWrap: true,
+                              physics: const BouncingScrollPhysics(),
+                              itemCount:listResponse.length,
+                              itemBuilder:(context, index) {
+                              return
+                        Column(
+                          children: [
+                            ListTile(
+                              leading:
+                                 
+                                      TextButton(
+                                        onPressed: (){
+                                          indexClicked = 3;
+                                          Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                          builder: (context) => const WebsiteDesignScreen()));
+                                        },
+                                        child: Text(
+                                          listResponse[index][translator.currentLanguage == 'en' ? 'name_en':'name_ar'].toString(),
+                                          style: TextStyle(
+                                          color:indexClicked == 3
+                                                          ? Defaults.drawerItemSelectColor
+                                                          : Theme.of(context).toggleableActiveColor,
+                                          fontFamily: "Cairo",
+                                          fontWeight: FontWeight.w600
+                                        ),
+                                          ))
+                                    
+                                  
+                            ),
+                            const SizedBox(height: 0,),
+                              Divider(
                               color: Theme.of(context).canvasColor,
                               height: 0,
                               thickness: 0.25,
                               indent: 10,
                               endIndent: 10,
                               ),
+                          ],
+                        );}
+                          ),
+                          /*
+                          
                             ListTile(
                           leading:
                             TextButton(
@@ -621,7 +447,7 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                             : Theme.of(context).toggleableActiveColor,
                               ),
                                 )),
-                          ),
+                          ),*/
                         ],
                           onExpansionChanged: (bool expanded){},
                           controlAffinity:ListTileControlAffinity.platform ,
@@ -807,11 +633,15 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                         shadowColor: Colors.black,
                       ),
                       onPressed: () {
+                        Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
                         translator.setNewLanguage(
                           context,
                           newLanguage: translator.currentLanguage == 'en' ? 'ar':'en',
                           remember: true,
-                          restart: true,
+                          //restart: true,
                         );
                         setState(() {
                           _bool = !_bool;
