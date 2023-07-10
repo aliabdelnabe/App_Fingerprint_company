@@ -21,6 +21,7 @@ import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 String stringResponse = "";
   Map <String, dynamic>  mapResponse = {};
@@ -70,13 +71,16 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
   
 
   @override
+
   Widget build(BuildContext context) {
+  final width = MediaQuery.of(context).size.width;
   // ignore: non_constant_identifier_names
   final PositionShadow = click ? -10.0 : -40.0;
     return Drawer(
       backgroundColor:Theme.of(context).dividerColor ,
+      shadowColor: Theme.of(context).selectedRowColor,
+      elevation: 80,
       child:  Expanded(
-        
         child: ListView.builder(
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
@@ -243,26 +247,32 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                               itemBuilder:(context, index) {
                               return
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ListTile(
                               leading:
-                                 
                                       TextButton(
                                         onPressed: (){
                                           indexClicked = 3;
                                           Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                          builder: (context) => const WebsiteDesignScreen()));
+                                          builder: (context) =>  WebsiteDesignScreen(
+                                            name: listResponse[index][translator.currentLanguage == 'en' ? 'name_en':'name_ar'].toString(),
+                                            url:listResponse[index]["url"],
+                                          )),);
                                         },
                                         child: Text(
                                           listResponse[index][translator.currentLanguage == 'en' ? 'name_en':'name_ar'].toString(),
+                                          overflow:TextOverflow.clip,
                                           style: TextStyle(
                                           color:indexClicked == 3
                                                           ? Defaults.drawerItemSelectColor
                                                           : Theme.of(context).toggleableActiveColor,
                                           fontFamily: "Cairo",
-                                          fontWeight: FontWeight.w600
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12.5,
                                         ),
                                           ))
                                     

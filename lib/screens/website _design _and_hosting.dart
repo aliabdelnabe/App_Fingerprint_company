@@ -11,6 +11,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../widget/services_track.dart';
 
+
+
 String stringResponse = "";
   Map <String, dynamic>  mapResponse = {};
   Map <String, dynamic>  dataResponse = {};
@@ -33,7 +35,11 @@ class CardItem {
 }
 
 class WebsiteDesignScreen extends StatefulWidget {
-  const WebsiteDesignScreen({super.key});
+  final String url ;
+  final String name;
+  
+
+  const WebsiteDesignScreen({super.key, required this.url, required this.name, });
 
 
   @override
@@ -49,6 +55,19 @@ class WebsiteDesignScreen extends StatefulWidget {
 /*late final PageController  pageController;
   int pagNo = 0;*/
 class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
+ /* Future servicestrack(String name) async {
+    http.Response response;
+    //response = await http.get(Uri.parse("https://reqres.in/api/users?page=2"));
+    response = await http.get(Uri.parse("https://backend.fingerprintm.com/api/$name"));
+    if (response.statusCode == 200) {
+      setState(() {
+        //stringResponse =  response.body;
+        rresponseMap = json.decode(response.body);
+        //dataResponse = mapResponse["data"];
+        responseList = mapResponse["data"];
+      });
+    }
+  }*/
  
   /*@override
   void initState () {
@@ -56,10 +75,12 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
     super.initState();
   }*/
  
- Future apicall() async {
+ // ignore: non_constant_identifier_names
+ Future apicall(String Url) async {
+    listResponse=[];
     http.Response response;
     //response = await http.get(Uri.parse("https://reqres.in/api/users?page=2"));
-    response = await http.get(Uri.parse("https://backend.fingerprintm.com/api/section/web"));
+    response = await http.get(Uri.parse("https://backend.fingerprintm.com/api/$Url"));
     if (response.statusCode == 200) {
       setState(() {
         //stringResponse =  response.body;
@@ -71,7 +92,8 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
   }
   @override
   void initState () {
-    apicall();
+    apicall(widget.url);
+    //servicestrack("${widget.name}");
     super.initState();
   }
   @override
@@ -79,6 +101,7 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
     
     final width = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
+    final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       drawerScrimColor: Theme.of(context).selectedRowColor,
@@ -144,7 +167,78 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
   body:  SingleChildScrollView(
           child: Column(
             children: [
-              const ServicesTrack(),
+                    Stack(
+                  children:[
+                  Container(
+      color: Colors.black,
+      width: double.infinity,
+      height: height * 0.090,
+      child:Image.asset(
+            "assets/images/breadcrumb.cad63821.jpeg",
+            fit: BoxFit.cover,
+            ) ,
+      ),
+                  Positioned(
+      top: 5,
+      bottom: 5,
+      left: 0,
+      right: 0,
+                  child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+            TextButton(
+              onPressed: (){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const MyMobileBody()));
+              }, 
+              child:const Icon(Icons.home_outlined,
+              color: Colors.white,
+              ),
+              ),
+              const Text(
+              ">>",
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 12,
+                fontFamily: "Cairo"
+              ),
+              ),
+              const SizedBox(width: 2),
+              Text(
+              "Services".tr(),
+            style:const TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 14,
+              color: Colors.white
+            ),
+            ),
+            const SizedBox(width: 2),
+             const Text(
+              ">>",
+              style: TextStyle(
+                fontSize: 12,
+                fontFamily: "Cairo",
+                color: Colors.white
+              ),
+              ),
+             // const SizedBox(width: 5),
+              Text(
+                widget.name,
+                overflow: TextOverflow.clip,
+                  style: TextStyle(
+                  fontSize: width * 0.027,
+                  color: Colors.white
+            ),
+            ),
+      ]
+                  ),
+            ),
+            ],
+      ),
+                
     const SizedBox(height: 100),
               ListView.builder(
                 shrinkWrap: true,
@@ -156,7 +250,6 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                height: 550,
                 width: width * 0.93,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -170,6 +263,9 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
                       ),
                       child: Material(
                         child: InkWell(
+                          onTap: (){
+                            launch(listResponse[index]["url"]);
+                          },
                           child: Image.network(//"${images[index]['image']}",
                             "https://backend.fingerprintm.com/images/${listResponse[index]['photo']}".toString(),
                             fit: BoxFit.cover,
@@ -249,6 +345,7 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
                   ],
                 ),
               ),
+              SizedBox(height: 40,)
                   ],
                   );
                 }

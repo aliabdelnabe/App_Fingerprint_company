@@ -46,76 +46,7 @@ class _ServicesTrackState extends State<ServicesTrack> {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Stack(
-                  children:[
-                   Container(
-      color: Colors.black,
-      width: double.infinity,
-      height: 70,
-      child:Image.asset(
-            "assets/images/breadcrumb.cad63821.jpeg",
-            fit: BoxFit.cover,
-            ) ,
-      ),
-                  Positioned(
-      top: 5,
-      bottom: 5,
-      left: 0,
-      right: 0,
-                  child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-            TextButton(
-              onPressed: (){
-                Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                      builder: (context) => const MyMobileBody()));
-              }, 
-              child:const Icon(Icons.home_outlined,
-              color: Colors.white,
-              ),
-              ),
-              const Text(
-              ">>",
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12,
-                fontFamily: "Cairo"
-              ),
-              ),
-              const SizedBox(width: 2),
-              Text(
-              "Services".tr(),
-            style:const TextStyle(
-              fontFamily: "Cairo",
-              fontSize: 14,
-              color: Colors.white
-            ),
-            ),
-            const SizedBox(width: 2),
-             const Text(
-              ">>",
-              style: TextStyle(
-                fontSize: 12,
-                fontFamily: "Cairo",
-                color: Colors.white
-              ),
-              ),
-              const SizedBox(width: 5),
-              Text(
-                listResponse[index][translator.currentLanguage == 'en' ? 'name_en':'name_ar'].toString(),
-                  style:const TextStyle(
-                  fontSize: 12,
-                  color: Colors.white
-            ),
-            ),
-      ]
-                  ),
-            ),
-            ],
-      ),
+            
           ],
         );
       },

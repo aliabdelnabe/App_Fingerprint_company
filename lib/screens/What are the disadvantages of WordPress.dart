@@ -645,10 +645,10 @@ class _WhitAreTheDisadvantagesState extends State<WhitAreTheDisadvantages> {
         const SizedBox(height: 60),
         TextButton(
           onPressed:() {
-            Navigator.push(
+            /*Navigator.push(
             context,
             MaterialPageRoute(
-            builder: (context) => const WebsiteDesignScreen()));
+            builder: (context) => const WebsiteDesignScreen()));*/
           }, 
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
