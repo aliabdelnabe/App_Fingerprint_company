@@ -73,11 +73,12 @@ _launchUrl(String url) async{
                     style:const TextStyle(
                       fontSize: 14,
                       fontFamily: "Cairo",
-                      color: Color(0xffFFBC00),
+                      color: Colors.white ,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff3B359F)
+                  backgroundColor: const Color(0xff3B359F),
+                  shadowColor: Colors.transparent
                   ),
                   ),
               ],

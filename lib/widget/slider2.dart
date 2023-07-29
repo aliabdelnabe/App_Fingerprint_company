@@ -97,11 +97,12 @@ class _blug2State extends State<blug2> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         SizedBox(
-          height: 520,
+          height: height * 0.68,
           child: PageView.builder(
             physics: const BouncingScrollPhysics(),
             controller: pageController,
@@ -112,7 +113,7 @@ class _blug2State extends State<blug2> {
               child:Container(
                 child: Column(
                   children: [
-                   Container(
+                  Container(
                       width: width * 0.93,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(9),

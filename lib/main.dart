@@ -1,4 +1,3 @@
-
 import 'package:arabic_english_app/screens/spladh_screen.dart';
 import 'package:arabic_english_app/them.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +6,16 @@ import 'package:get_storage/get_storage.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:flutter/services.dart';
 
+
+
+
 bool _switchValue = true;
  main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent
   ));

@@ -8,11 +8,6 @@ import 'package:http/http.dart' as http;
 
 
 
-String stringResponse = "";
-  Map <String, dynamic>  mapResponse = {};
-  Map <String, dynamic>  dataResponse = {};
-  List  listResponse=[];
-
 
 class FingerprintServices1 extends StatefulWidget {
   const FingerprintServices1({super.key, required this.width});
@@ -50,21 +45,19 @@ class _FingerprintServices1State extends State<FingerprintServices1> {
     return Container(
       padding: const EdgeInsets.all(15),
       child: ListView.builder(
-        itemCount: listResponse.length,
         shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
+        physics:const NeverScrollableScrollPhysics(),
+        itemCount: listResponse == null ? 0 :listResponse.length,
         itemBuilder: (context, index) {
-        return Column(
+          return Column(
           children: [
             Container(
-              width: width * 0.70,
-              height: 265,
               child: SvgPicture.asset("assets/images/image_service_web.svg",
               fit: BoxFit.cover,
               ),
             ),
-          TextButton(
-            onPressed: (){
+          InkWell(
+            onTap: (){
               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -104,7 +97,7 @@ class _FingerprintServices1State extends State<FingerprintServices1> {
                   ),
           ],
         );
-  },
+        },
       ),
     );
 
