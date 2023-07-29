@@ -559,7 +559,8 @@ class _BlogState extends State<Blog> {
                                                   builder: (context) =>
                                                       WhitAreTheDisadvantages(
                                                           slug: listResponse[
-                                                              index]["slug"])));
+                                                                  index]["slug"]
+                                                              [0])));
                                         },
                                         child: Container(
                                           padding: const EdgeInsets.all(1),
@@ -738,7 +739,6 @@ class _BlogState extends State<Blog> {
                                           child: Image.asset(
                                               "assets/icons/comment.png",
                                               fit: BoxFit.cover,
-                                              // ignore: deprecated_member_use
                                               color: Theme.of(context)
                                                   .toggleableActiveColor),
                                         ),
@@ -779,7 +779,6 @@ class _BlogState extends State<Blog> {
                                             children: [
                                               const SizedBox(width: 7),
                                               Container(
-                                                // padding: const EdgeInsets.all(5),
                                                 width: width * 0.90,
                                                 child: Text(
                                                   listResponse[index][translator
@@ -792,7 +791,6 @@ class _BlogState extends State<Blog> {
                                                     fontSize: width * 0.037,
                                                     fontFamily: "Cairo",
                                                     fontWeight: FontWeight.w600,
-                                                    // ignore: deprecated_member_use
                                                     color: Theme.of(context)
                                                         .toggleableActiveColor,
                                                   ),
@@ -850,17 +848,6 @@ class _BlogState extends State<Blog> {
                           );
                         },
                       ),
-                      if (_isLoading)
-                        const Center(
-                          child: Column(
-                            children: [
-                              CircularProgressIndicator(),
-                              SizedBox(
-                                height: 100,
-                              ),
-                            ],
-                          ),
-                        ),
                       const SizedBox(height: 90),
                       const SizedBox(height: 0),
                       Container(

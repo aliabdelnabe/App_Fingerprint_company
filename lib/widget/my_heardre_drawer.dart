@@ -1,19 +1,13 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:arabic_english_app/constens/defults.dart';
-import 'package:arabic_english_app/screens/Content_writing_seo_optimization.dart';
 import 'package:arabic_english_app/screens/about.dart';
 import 'package:arabic_english_app/screens/blog.dart';
 import 'package:arabic_english_app/screens/contact_us.dart';
 import 'package:arabic_english_app/screens/customer_reviews.dart';
-import 'package:arabic_english_app/screens/google_ads.dart';
 import 'package:arabic_english_app/controller/log_in.dart';
-import 'package:arabic_english_app/screens/mobile_app_go.dart';
 import 'package:arabic_english_app/screens/mobile_body.dart';
-import 'package:arabic_english_app/screens/motion_graphic.dart';
-import 'package:arabic_english_app/screens/production%20_videos.dart';
 import 'package:arabic_english_app/controller/register.dart';
-import 'package:arabic_english_app/screens/social_media_management.dart';
 import 'package:arabic_english_app/screens/website%20_design%20_and_hosting.dart';
 import 'package:arabic_english_app/them.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,12 +15,13 @@ import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:url_launcher/url_launcher.dart';
 
 String stringResponse = "";
 Map<String, dynamic> mapResponse = {};
 Map<String, dynamic> dataResponse = {};
 List listResponse = [];
+
+
 
 // ignore: non_constant_identifier_names
 var indexClicked = 0;
