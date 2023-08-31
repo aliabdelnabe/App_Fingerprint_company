@@ -1,4 +1,4 @@
-import 'package:arabic_english_app/screens/dimensions.dart';
+import 'package:arabic_english_app/views/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class ResponsiveLayout extends StatelessWidget {

@@ -1,18 +1,16 @@
-
-import 'package:arabic_english_app/screens/website%20_design%20_and_hosting.dart';
+import 'package:arabic_english_app/views/website%20_design%20_and_hosting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
-
-
+bool _login = false;
+bool _isLoading = true;
 
 class FingerprintServices1 extends StatefulWidget {
   const FingerprintServices1({super.key, required this.width});
 
-      final double width;
+  final double width;
 
   @override
   State<FingerprintServices1> createState() => _FingerprintServices1State();
@@ -20,93 +18,131 @@ class FingerprintServices1 extends StatefulWidget {
 
 class _FingerprintServices1State extends State<FingerprintServices1> {
   Future apicall() async {
-    http.Response response;
-    //response = await http.get(Uri.parse("https://reqres.in/api/users?page=2"));
-    response = await http.get(Uri.parse("https://backend.fingerprintm.com/api/getSections?active=true"));
-    if (response.statusCode == 200) {
+    try {
+      http.Response response;
+      response = await http.get(Uri.parse(
+          "https://backend.fingerprintm.com/api/getSections?active=true"));
+      if (response.statusCode == 200) {
+        setState(() {
+          mapResponse = json.decode(response.body);
+          listResponse = mapResponse["data"];
+        });
+      }
+    } catch (e) {
       setState(() {
-        //stringResponse =  response.body;
-        mapResponse = json.decode(response.body);
-        //dataResponse = mapResponse["data"];
-        listResponse = mapResponse["data"];
+        _isLoading = false;
+        listResponse = [];
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Theme.of(context).dividerColor,
+                elevation: 0,
+                contentTextStyle: TextStyle(
+                  color: Theme.of(context).canvasColor,
+                ),
+                iconColor: Colors.black,
+                shadowColor: Colors.transparent,
+                title: Text("Contact_the_internet".tr()),
+                content: Container(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset(
+                          "assets/icons/wifi (2).png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context).dividerColor),
+                        child: Text(
+                          "There_is_no_internet_connection".tr(),
+                          style: TextStyle(
+                              color: Theme.of(context).canvasColor,
+                              fontSize: 25),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            });
       });
     }
   }
-  @override
-  void initState () {
-    apicall();
-    super.initState();
-  }
-  @override
+ 
 
+  @override
   Widget build(BuildContext context) {
-  final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
 
     return Container(
       padding: const EdgeInsets.all(15),
       child: ListView.builder(
         shrinkWrap: true,
-        physics:const NeverScrollableScrollPhysics(),
-        itemCount: listResponse == null ? 0 :listResponse.length,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: 1,
         itemBuilder: (context, index) {
           return Column(
-          children: [
-            Container(
-              child: SvgPicture.asset("assets/images/image_service_web.svg",
-              fit: BoxFit.cover,
+            children: [
+              Container(
+                child: SvgPicture.asset(
+                  "assets/images/image_service_web.svg",
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-          InkWell(
-            onTap: (){
-              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                  builder: (context) =>  WebsiteDesignScreen(
-                                   name: listResponse[index][translator.currentLanguage == 'en' ? 'name_en':'name_ar'].toString(),
-                                              url:listResponse[index]["url"],
-                                  )));
-            },
-            child: Text("text8".tr(),
-              style:  TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Cairo",
-              color: Theme.of(context).secondaryHeaderColor,
-                                      ),
-                                    ),
-          ),
-          Text("text8 title1".tr(),
-                  maxLines: 7,
-                  overflow: TextOverflow.ellipsis,
-                    style:  TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WebsiteDesignScreen(
+                                name: "web_development".tr(),
+                                url: "section/web",
+                              )));
+                },
+                child: Text(
+                  "text8".tr(),
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
                     fontFamily: "Cairo",
                     color: Theme.of(context).secondaryHeaderColor,
                   ),
-                  ),
-                  Text("text8 title2".tr(),
-                  maxLines: 7,
-                  overflow: TextOverflow.ellipsis,
-                    style:  TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: "Cairo",
-                    color: Theme.of(context).secondaryHeaderColor,
-                  ),
-                  ),
-          ],
-        );
+                ),
+              ),
+              Text(
+                "text8 title1".tr(),
+                maxLines: 7,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Cairo",
+                  color: Theme.of(context).secondaryHeaderColor,
+                ),
+              ),
+              Text(
+                "text8 title2".tr(),
+                maxLines: 7,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Cairo",
+                  color: Theme.of(context).secondaryHeaderColor,
+                ),
+              ),
+            ],
+          );
         },
       ),
     );
-
   }
 }
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 import 'package:arabic_english_app/controller/log_in.dart';
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';

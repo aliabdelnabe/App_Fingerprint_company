@@ -1,13 +1,20 @@
-import 'dart:convert';
-
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/controller/message_push_home.dart';
+import 'package:arabic_english_app/services/post.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/controller/register.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
+import 'package:arabic_english_app/widget/password_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-import 'package:http/http.dart';
+import '../widget/my_text_form filed.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final GoogleSignIn _googleSignIn = GoogleSignIn();
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -17,39 +24,12 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  Future<void> login() async {
-    try {
-      Response response = await post(
-          Uri.parse("https://backend.fingerprintm.com/api/auth/login"),
-          body: {
-            "email": emailController.text,
-            "password": passwordController.text,
-          });
-      if (response.statusCode == 200) {
-        var data = jsonDecode(response.body.toString());
-        // ignore: use_build_context_synchronously
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MyMobileBody(),
-          ),
-        );
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: data["message"]));
-        print("تسجيل الدخول بنجاح");
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text(
-                "بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا")));
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-  }
 
-  bool _obscureTex = true;
+  bool obserText = true;
+
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -249,29 +229,28 @@ class _LogInState extends State<LogIn> {
                                         children: [
                                           Expanded(
                                             child: Container(
-                                              padding: const EdgeInsets.only(
-                                                  right: 8, left: 8),
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                color: Theme.of(context)
-                                                    .backgroundColor,
-                                              ),
-                                              child: TextFormField(
-                                                controller: emailController,
-                                                decoration:
-                                                    const InputDecoration(
-                                                  hintText: "name@example.com",
-                                                  hintStyle: TextStyle(
-                                                    color: Colors.grey,
-                                                  ),
-                                                  enabledBorder:
-                                                      InputBorder.none,
-                                                  focusedBorder:
-                                                      InputBorder.none,
+                                                padding: const EdgeInsets.only(
+                                                    right: 8, left: 8),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  color: Theme.of(context)
+                                                      .colorScheme.background,
                                                 ),
-                                              ),
-                                            ),
+                                                child: MyTextFormField(
+                                                  controller: emailController,
+                                                  name: "name@fingerprint.com",
+                                                  validator: (valeu) {
+                                                    if (valeu == "") {
+                                                      return "email_errore"
+                                                          .tr();
+                                                    } else if (valeu!.length <
+                                                        8) {
+                                                      return "short_email".tr();
+                                                    }
+                                                    return "";
+                                                  },
+                                                )),
                                           ),
                                         ],
                                       ),
@@ -297,38 +276,31 @@ class _LogInState extends State<LogIn> {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                                 color: Theme.of(context)
-                                                    .backgroundColor,
+                                                    .colorScheme.background,
                                               ),
-                                              child: TextFormField(
+                                              child: PasswordTextFormField(
                                                 controller: passwordController,
-                                                obscureText: _obscureTex,
-                                                decoration: InputDecoration(
-                                                  suffixIcon: GestureDetector(
-                                                    onTap: () {
-                                                      setState(() {
-                                                        _obscureTex =
-                                                            !_obscureTex;
-                                                      });
-                                                    },
-                                                    child: Icon(
-                                                      _obscureTex
-                                                          ? Icons
-                                                              .visibility_off_rounded
-                                                          : Icons
-                                                              .visibility_outlined,
-                                                      color: Theme.of(context)
-                                                          .dialogBackgroundColor,
-                                                    ),
-                                                  ),
-                                                  hintText: "*******",
-                                                  hintStyle: const TextStyle(
-                                                    color: Colors.grey,
-                                                  ),
-                                                  enabledBorder:
-                                                      InputBorder.none,
-                                                  focusedBorder:
-                                                      InputBorder.none,
-                                                ),
+                                                obserText: obserText,
+                                                name: "Password",
+                                                validator: (value) {
+                                                  if (value == "") {
+                                                    return "Please Fill Password";
+                                                  } else if (value!.length <
+                                                      8) {
+                                                    return "Password Is Too Short";
+                                                  }
+                                                  return "";
+                                                },
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  setState(() {
+                                                    obserText = !obserText;
+                                                  });
+
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                },
                                               ),
                                             ),
                                           ),
@@ -356,9 +328,16 @@ class _LogInState extends State<LogIn> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          GestureDetector(
-                                              onTap: () {
-                                                login();
+                                          InkWell(
+                                              onTap: () async {
+                                                var res= await login();
+                                                if(res==true){
+                                                  print("put buttom here --------");
+                                                }
+                                                else{
+                                                  print("-----u can not ");
+                                                }
+                                             
                                               },
                                               child: Container(
                                                 padding: const EdgeInsets.only(
@@ -476,7 +455,11 @@ class _LogInState extends State<LogIn> {
                                                 width: 65,
                                                 height: 65,
                                                 child: TextButton(
-                                                  onPressed: () {},
+                                                  onPressed: () async {
+                                                    UserCredential
+                                                        userCredential =
+                                                        await signInWithGoogle();
+                                                  },
                                                   child: Image.asset(
                                                     "assets/icons/google.png",
                                                     fit: BoxFit.cover,
@@ -488,7 +471,7 @@ class _LogInState extends State<LogIn> {
                                                 width: 70,
                                                 height: 70,
                                                 child: TextButton(
-                                                  onPressed: () {},
+                                                  onPressed: () async {},
                                                   child: Image.asset(
                                                     "assets/icons/facebook (3).png",
                                                     fit: BoxFit.cover,
@@ -575,4 +558,210 @@ class _LogInState extends State<LogIn> {
       ),
     );
   }
+
+  services ser = services();
+
+  login() async {
+    final String apiUrl = 'https://backend.fingerprintm.com/api/auth/login';
+
+    var response = await ser.postRequest(apiUrl, {
+      "email": emailController.text,
+      "password": passwordController.text,
+    });
+    if (response['status'] == true) {
+      // اه
+      // تم تسجيل الدخول بنجاح
+      // تحديث حالة تسجيل الدخول وتخزين بيانات المستخدم
+
+      // ...
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MessagePushHome()));
+      // توجيه المستخدم إلى الشاشة الرئيسية
+      print("تم التسجيل الدخول");
+      AlertDialog(
+        backgroundColor: Colors.black,
+        title: Text('خطأ'),
+        content: Text(response["message"]), // تمم عوزين نظبط الرساله
+        actions: <Widget>[
+          TextButton(
+            child: Text('موافق'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      );
+      return true;
+    } else {
+      // حدث خطأ في تسجيل الدخول
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Theme.of(context).canvasColor,
+            title: Text('خطأ'),
+            content: Text(response["message"]),
+            actions: <Widget>[
+              TextButton(
+                child: Text('موافق'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        },
+      );
+
+      return false;
+    }
+  }
+
+  showDefault(String messeg) {
+    FToast fToast = FToast();
+    fToast.init(context);
+    Widget toast = Container(
+      height: 100,
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(18),
+              topRight: Radius.circular(18),
+            ),
+            child: Container(
+              height: 4,
+              child: Image.asset(
+                "assets/icons/raderorr.png",
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(5),
+                bottomRight: Radius.circular(5),
+              ),
+              color: Colors.white,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          "خطأ",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "cairo",
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            messeg,
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      child: Image.asset(
+                        "assets/icons/cancel (1).png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+    fToast.showToast(
+      child: toast,
+      toastDuration: const Duration(seconds: 3),
+      gravity: ToastGravity.CENTER,
+    );
+  }
+
+  showCustom() {
+    FToast fToast = FToast();
+    fToast.init(context);
+    Widget toast = Container(
+      height: 50,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.grey,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Icon(
+            Icons.close,
+            color: Colors.white,
+          ),
+          SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              "هذ البيانات ليس المسجلة لدينا",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+    fToast.showToast(
+      child: toast,
+      toastDuration: const Duration(seconds: 3),
+      gravity: ToastGravity.CENTER,
+    );
+  }
+
+  Future signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleSignInAccount =
+          await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount!.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+
+      final UserCredential userCredential =
+          await _auth.signInWithCredential(credential);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MyMobileBody()));
+      // يمكنك الوصول إلى بيانات المستخدم هنا
+      print(userCredential.user);
+
+      return userCredential;
+    } catch (error) {
+      print(error);
+      return null;
+    }
+  }
+
+  // late AccessToken _accessToken;
+  // late Map _userData;
 }
+
+
+// login == true ?contaner() : contaner()

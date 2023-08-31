@@ -1,12 +1,8 @@
 import 'dart:async';
-// ignore: unused_import
-import 'dart:ffi';
-
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:flutter/material.dart';
 
-
-void main() {
+void main()async {
   runApp(const SplashScreen());
 }
 
@@ -48,18 +44,21 @@ class _SplashScreenState extends State<SplashScreen> {
             decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 255, 255, 255),
                 gradient: LinearGradient(
-                colors: [(Color.fromARGB(255, 255, 255, 255)), (Color.fromARGB(255, 255, 255, 255))],
+                  colors: [
+                    (Color.fromARGB(255, 255, 255, 255)),
+                    (Color.fromARGB(255, 255, 255, 255))
+                  ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 )),
           ),
           Center(
             child: Container(
-              width: 300,
-              height: 300,
-              child: Image.asset(
-                "assets/images/bg-logo.d08d260d.png",
-                fit: BoxFit.cover,
+                width: 300,
+                height: 300,
+                child: Image.asset(
+                  "assets/images/bg-logo.d08d260d.png",
+                  fit: BoxFit.cover,
                 )),
           )
         ],

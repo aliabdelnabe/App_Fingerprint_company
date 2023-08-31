@@ -1,6 +1,6 @@
 
-import 'package:arabic_english_app/screens/contact_us.dart';
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/contact_us.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -1,18 +1,14 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:arabic_english_app/constants.dart';
-import 'package:arabic_english_app/screens/Advantages%20of%20creating%20a%20special%20programming%20website.dart';
-import 'package:arabic_english_app/screens/What%20are%20the%20disadvantages%20of%20WordPress.dart';
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/What%20are%20the%20disadvantages%20of%20WordPress.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:url_launcher/url_launcher.dart';
 
 String UrlImage = "https://backend.fingerprintm.com/images";
 
@@ -35,8 +31,8 @@ class _BlogState extends State<Blog> {
   Future apicall() async {
     try {
       http.Response response;
-      response = await http.get(Uri.parse(
-          "https://backend.fingerprintm.com/api/filterPosts?sections_id=[]"));
+      response = await http.get(
+          Uri.parse("https://backend.fingerprintm.com/api/getPosts?page=1"));
       //response = await http.get(Uri.parse(grtPostes));
       if (response.statusCode == 200) {
         setState(() {
@@ -50,6 +46,7 @@ class _BlogState extends State<Blog> {
         });
       }
     } catch (e) {
+      print("slug is response ${mapResponse["slug"]}");
       setState(() {
         _isLoading = false;
         listResponse = [];
@@ -57,8 +54,41 @@ class _BlogState extends State<Blog> {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: const Text("Error "),
-                content: Text("An error occurred:$e"),
+                backgroundColor: Theme.of(context).dividerColor,
+                elevation: 0,
+                contentTextStyle: TextStyle(
+                  color: Theme.of(context).canvasColor,
+                ),
+                iconColor: Colors.black,
+                shadowColor: Colors.transparent,
+                title: Text("Contact_the_internet".tr()),
+                content: Container(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset(
+                          "assets/icons/wifi (2).png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context).dividerColor),
+                        child: Text(
+                          "There_is_no_internet_connection".tr(),
+                          style: TextStyle(
+                              color: Theme.of(context).canvasColor,
+                              fontSize: 25),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             });
       });
@@ -246,7 +276,7 @@ class _BlogState extends State<Blog> {
                           right: 10,
                         ),
                         decoration: BoxDecoration(
-                            color: Theme.of(context).backgroundColor,
+                            color: Theme.of(context).colorScheme.background,
                             borderRadius: BorderRadius.circular(10)),
                         child: TextField(
                           decoration: InputDecoration(
@@ -554,13 +584,21 @@ class _BlogState extends State<Blog> {
                                       InkWell(
                                         onTap: () {
                                           Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      WhitAreTheDisadvantages(
-                                                          slug: listResponse[
-                                                                  index]["slug"]
-                                                              [0])));
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    WhitAreTheDisadvantages(
+                                                      name: listResponse[
+                                                              index][translator
+                                                                      .currentLanguage ==
+                                                                  'en'
+                                                              ? 'name_en'
+                                                              : 'name_ar']
+                                                          .toString(),
+                                                      slug: listResponse[index]
+                                                          ["slug"],
+                                                    )),
+                                          );
                                         },
                                         child: Container(
                                           padding: const EdgeInsets.all(1),
@@ -690,10 +728,22 @@ class _BlogState extends State<Blog> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        // context,
-                                        // MaterialPageRoute(
-                                        // builder: (context) => const WhitAreTheDisadvantages()));
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WhitAreTheDisadvantages(
+                                                    name: listResponse[
+                                                            index][translator
+                                                                    .currentLanguage ==
+                                                                'en'
+                                                            ? 'name_en'
+                                                            : 'name_ar']
+                                                        .toString(),
+                                                    slug: listResponse[index]
+                                                        ["slug"],
+                                                  )),
+                                        );
                                       },
                                       child: Image(
                                         image: NetworkImage(
@@ -756,10 +806,22 @@ class _BlogState extends State<Blog> {
                                         children: [
                                           TextButton(
                                             onPressed: () {
-                                              // Navigator.push(
-                                              // context,
-                                              // MaterialPageRoute(
-                                              // builder: (context) => const WhitAreTheDisadvantages()));
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        WhitAreTheDisadvantages(
+                                                          name: listResponse[
+                                                                  index][translator
+                                                                          .currentLanguage ==
+                                                                      'en'
+                                                                  ? 'name_en'
+                                                                  : 'name_ar']
+                                                              .toString(),
+                                                          slug: listResponse[
+                                                              index]["slug"],
+                                                        )),
+                                              );
                                             },
                                             child: Text(
                                               listResponse[index][translator
@@ -809,13 +871,22 @@ class _BlogState extends State<Blog> {
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor: Colors.amber),
                                             onPressed: () {
-                                              // Navigator.push(
-                                              //     context,
-                                              //     MaterialPageRoute(
-                                              //         builder: (context) =>
-                                              //             WhitAreTheDisadvantages(
-                                              //                 url:
-                                              //                     "filterPosts")));
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        WhitAreTheDisadvantages(
+                                                          name: listResponse[
+                                                                  index][translator
+                                                                          .currentLanguage ==
+                                                                      'en'
+                                                                  ? 'name_en'
+                                                                  : 'name_ar']
+                                                              .toString(),
+                                                          slug: listResponse[
+                                                              index]["slug"],
+                                                        )),
+                                              );
                                             },
                                             child: Row(
                                               crossAxisAlignment:
@@ -997,6 +1068,11 @@ class _BlogState extends State<Blog> {
                           ],
                         ),
                       ),
+                      IconButton(
+                          onPressed: () {
+                            print("slug is ${mapResponse["slug"]}");
+                          },
+                          icon: Icon(Icons.account_box_sharp))
                     ],
                   );
                 },

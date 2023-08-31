@@ -13,26 +13,43 @@ class ThemeService {
     hintColor:const Color(0xffE3DFEC),
     hoverColor:const Color(0xff5631A0),
     secondaryHeaderColor:const Color(0xff5631A0),
-    errorColor:const Color.fromARGB(255, 159, 190, 230),
     focusColor: const Color.fromRGBO(44, 66, 94, 1),
     splashColor: const Color(0xffE3DFEC),
     unselectedWidgetColor: Colors.black,
     primaryColorDark:Colors. white,
     primaryColorLight: const Color(0xff5631A0),
     disabledColor: const Color.fromARGB(255, 209, 204, 204),
-    backgroundColor: Color.fromARGB(255, 226, 224, 224),
     dialogBackgroundColor:const Color.fromARGB(255, 38, 38, 39),
     highlightColor: Colors.white,
-    bottomAppBarColor:const Color.fromARGB(255, 233, 233, 233),
     indicatorColor:const Color(0xff5631A0),
     shadowColor: Colors.black,
-    // ignore: deprecated_member_use
-    toggleableActiveColor: Colors.black,
-    selectedRowColor:const Color(0xff46033A).withOpacity(0.3),
     scaffoldBackgroundColor:const Color.fromARGB(255, 245, 237, 237),
     cardTheme:const CardTheme(
       color: Color(0xff5631A0)
-    ),
+    ), checkboxTheme: CheckboxThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.black; }
+ return null;
+ }),
+ ), radioTheme: RadioThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.black; }
+ return null;
+ }),
+ ), switchTheme: SwitchThemeData(
+ thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.black; }
+ return null;
+ }),
+ trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.black; }
+ return null;
+ }),
+ ), colorScheme: ColorScheme(background: Color.fromARGB(255, 226, 224, 224)), colorScheme: ColorScheme(error: const Color.fromARGB(255, 159, 190, 230)), bottomAppBarTheme: BottomAppBarTheme(color: const Color.fromARGB(255, 233, 233, 233)),
 
 
 
@@ -46,25 +63,43 @@ class ThemeService {
     hintColor:const Color(0xFF151B33),
     hoverColor:const Color.fromARGB(255, 28, 39, 53),
     secondaryHeaderColor: Colors.white,
-    errorColor:const Color.fromARGB(255, 55, 90, 133),
     focusColor:Colors.white,
     splashColor:const Color(0xff1F2937),
     unselectedWidgetColor:const Color(0xFFFFBC01),
     primaryColorDark: const Color.fromARGB(255, 13, 17, 27),
     primaryColorLight:const Color(0xFFFFBC01),
     disabledColor: const Color(0xFF151B33) ,
-    backgroundColor:const Color.fromARGB(255, 28, 39, 53) ,
     dialogBackgroundColor:const Color.fromARGB(255, 184, 188, 189),
     highlightColor: const Color.fromARGB(255, 28, 39, 53) ,
-    bottomAppBarColor:const Color.fromARGB(255, 53, 65, 80) ,
     indicatorColor:const Color(0XFF9e0080),
     shadowColor:const Color(0xFFFFBC01),
-    toggleableActiveColor: Colors.white,
-    selectedRowColor: Colors.black.withOpacity(0.3),
     scaffoldBackgroundColor:Colors.white,
     cardTheme:const CardTheme(
       color: Color(0xFF111827)
-    ),
+    ), checkboxTheme: CheckboxThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.white; }
+ return null;
+ }),
+ ), radioTheme: RadioThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.white; }
+ return null;
+ }),
+ ), switchTheme: SwitchThemeData(
+ thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.white; }
+ return null;
+ }),
+ trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return Colors.white; }
+ return null;
+ }),
+ ), colorScheme: ColorScheme(background: const Color.fromARGB(255, 28, 39, 53)), colorScheme: ColorScheme(error: const Color.fromARGB(255, 55, 90, 133)), bottomAppBarTheme: BottomAppBarTheme(color: const Color.fromARGB(255, 53, 65, 80)),
   );
 
   final _getStorage = GetStorage();

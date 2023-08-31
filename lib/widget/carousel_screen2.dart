@@ -118,7 +118,7 @@ class _CarouselScreenState extends State<CarouselScreen2> {
                         bottomRight: Radius.circular(10),
                         topRight: Radius.circular(10)
                       ),
-                        color:Theme.of(context).backgroundColor,
+                        color:Theme.of(context).colorScheme.background,
                     ),
                     child: Container(
                       margin: const EdgeInsets.all(25),

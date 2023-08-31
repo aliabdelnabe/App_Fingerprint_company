@@ -1,13 +1,11 @@
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/carousel_screen2.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
-import 'package:arabic_english_app/widget/social_media_widget.dart';
 import 'package:arabic_english_app/widget/write_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomerReviews extends StatefulWidget {
   const CustomerReviews({super.key});

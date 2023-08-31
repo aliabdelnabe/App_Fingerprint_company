@@ -1,4 +1,4 @@
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../widget/services_track.dart';
 
 String stringResponse = "";
 Map<String, dynamic> mapResponse = {};
@@ -18,6 +17,7 @@ List listResponse = [];
 List responseList = [];
 Map<String, dynamic> rresponseMap = {};
 Map<String, dynamic> responseData = {};
+bool _isLoading = true;
 
 class CardItem {
   final String urlImage;
@@ -47,6 +47,7 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
 
   // ignore: non_constant_identifier_names
   Future apicall(String Url) async {
+    try{
     listResponse = [];
     http.Response response;
    
@@ -60,7 +61,56 @@ class _WebsiteDesignScreenState extends State<WebsiteDesignScreen> {
         listResponse = mapResponse["data"];
       });
     }
-  }
+    }catch (e) {
+      setState(() {
+        _isLoading = false;
+        listResponse = [];
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Theme.of(context).dividerColor,
+                elevation: 0,
+                contentTextStyle: TextStyle(
+                  color: Theme.of(context).canvasColor,
+                ),
+                iconColor: Colors.black,
+                shadowColor: Colors.transparent,
+                title: Text("Contact_the_internet".tr()),
+                content: Container(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset(
+                          "assets/icons/wifi (2).png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context).dividerColor),
+                        child: Text(
+                          "There_is_no_internet_connection".tr(),
+                          style: TextStyle(
+                              color: Theme.of(context).canvasColor,
+                              fontSize: 25),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            });
+      });
+    }
+      
+    }
+  
 
   @override
   void initState() {

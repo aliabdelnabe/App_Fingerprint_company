@@ -1,4 +1,6 @@
-import 'package:arabic_english_app/screens/mobile_body.dart';
+
+
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:flutter/material.dart';
@@ -19,12 +21,12 @@ class CardItem {
 });
 }
 
-class MobileAppGo extends StatefulWidget {
-  const MobileAppGo({super.key});
+class ContentWritingSeoOptimization extends StatefulWidget {
+  const ContentWritingSeoOptimization({super.key});
 
 
   @override
-  State<MobileAppGo> createState() => _MobileAppGoState();
+  State<ContentWritingSeoOptimization> createState() => _ContentWritingSeoOptimizationState();
 }
 // ignore: unused_element
   Future<void> _handleRefresh()  async {
@@ -35,16 +37,9 @@ class MobileAppGo extends StatefulWidget {
 
 late final PageController  pageController;
   int pagNo = 0;
-class _MobileAppGoState extends State<MobileAppGo> {
+class _ContentWritingSeoOptimizationState extends State<ContentWritingSeoOptimization> {
   List images = [
-    { "image":"assets/images/app1.jpg", 
-      "name" :  "Green Faramer",
-      "title" :  "yspace2"
-    },
-    { "image": "assets/images/app2.jpg", 
-      "name" :  "yspace",
-      "title" :  "yspace2"
-    },
+    
 
 
   ];
@@ -119,7 +114,7 @@ class _MobileAppGoState extends State<MobileAppGo> {
   body:  Column(
     children: [
       Expanded(
-        child: SingleChildScrollView(
+        child:SingleChildScrollView(
                 child: Column(
                   children: [
                     Stack(
@@ -180,7 +175,7 @@ class _MobileAppGoState extends State<MobileAppGo> {
                         ),
                         ),
                         const SizedBox(width: 5),
-                        Text("mobileapp".tr(),
+                        Text("text13".tr(),
                             style:const TextStyle(
                             fontSize: 12,
                             color: Colors.white

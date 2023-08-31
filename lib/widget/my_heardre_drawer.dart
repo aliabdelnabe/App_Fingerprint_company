@@ -1,27 +1,29 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:arabic_english_app/constens/defults.dart';
-import 'package:arabic_english_app/screens/about.dart';
-import 'package:arabic_english_app/screens/blog.dart';
-import 'package:arabic_english_app/screens/contact_us.dart';
-import 'package:arabic_english_app/screens/customer_reviews.dart';
+import 'package:arabic_english_app/controller/message_push_home.dart';
+import 'package:arabic_english_app/services/auth_provider.dart';
+import 'package:arabic_english_app/services/post.dart';
+import 'package:arabic_english_app/views/about.dart';
+import 'package:arabic_english_app/views/blog.dart';
+import 'package:arabic_english_app/views/contact_us.dart';
+import 'package:arabic_english_app/views/customer_reviews.dart';
 import 'package:arabic_english_app/controller/log_in.dart';
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/controller/register.dart';
-import 'package:arabic_english_app/screens/website%20_design%20_and_hosting.dart';
+import 'package:arabic_english_app/views/website%20_design%20_and_hosting.dart';
 import 'package:arabic_english_app/them.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 String stringResponse = "";
 Map<String, dynamic> mapResponse = {};
 Map<String, dynamic> dataResponse = {};
 List listResponse = [];
-
-
 
 // ignore: non_constant_identifier_names
 var indexClicked = 0;
@@ -34,14 +36,72 @@ class MyHeadreDrawer extends StatefulWidget {
 }
 
 class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
+  bool isLoading = true;
+  bool isLoggedIn = false;
+  Future<void> performLogout() async {
+    // Implement your logout logic here
+    // For example, you can send a request to your backend to log the user out
+    // Then update the isLoggedIn state to false
+    setState(() {
+      isLoggedIn = false;
+    });
+  }
   Future apicall() async {
-    http.Response response;
-    response = await http.get(Uri.parse(
-        "https://backend.fingerprintm.com/api/getSections?active=true"));
-    if (response.statusCode == 200) {
+    try {
+      http.Response response;
+      response = await http.get(Uri.parse(
+          "https://backend.fingerprintm.com/api/getSections?active=true"));
+      if (response.statusCode == 200) {
+        setState(() {
+          mapResponse = json.decode(response.body);
+          listResponse = mapResponse["data"];
+        });
+      }
+    } catch (e) {
       setState(() {
-        mapResponse = json.decode(response.body);
-        listResponse = mapResponse["data"];
+        isLoading = false;
+        listResponse = [];
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Theme.of(context).dividerColor,
+                elevation: 0,
+                contentTextStyle: TextStyle(
+                  color: Theme.of(context).canvasColor,
+                ),
+                iconColor: Colors.black,
+                shadowColor: Colors.transparent,
+                title: Text("Contact_the_internet".tr()),
+                content: Container(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset(
+                          "assets/icons/wifi (2).png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context).dividerColor),
+                        child: Text(
+                          "There_is_no_internet_connection".tr(),
+                          style: TextStyle(
+                              color: Theme.of(context).canvasColor,
+                              fontSize: 25),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            });
       });
     }
   }
@@ -404,86 +464,212 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                           ],
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).errorColor,
-                        ),
-                        child: TextButton(
-                          style: ElevatedButton.styleFrom(
-                            shadowColor: Colors.black,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LogIn()));
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.lock,
-                                color: Theme.of(context).secondaryHeaderColor,
-                              ),
-                              const SizedBox(width: 5.0),
-                              Text(
-                                'login'.tr(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: "Cairo",
-                                  fontWeight: FontWeight.w600,
-                                  color: Theme.of(context).secondaryHeaderColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).errorColor,
-                        ),
-                        child: TextButton(
-                          style: ElevatedButton.styleFrom(
-                            shadowColor: Colors.black,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Register()));
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
+                      isLoading == false // المفروض تتغير
+                          ? Column(children: [
                               Container(
-                                  width: 20,
-                                  height: 20,
-                                  child: Image.asset(
-                                    "assets/icons/user-male.png",
-                                    color:
-                                        Theme.of(context).secondaryHeaderColor,
-                                  )),
-                              const SizedBox(width: 8.0),
-                              Text(
-                                'register'.tr(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: "Cairo",
-                                  fontWeight: FontWeight.w600,
-                                  color: Theme.of(context).secondaryHeaderColor,
+                                margin: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Theme.of(context).errorColor,
+                                ),
+                                child: TextButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shadowColor: Colors.black,
+                                  ),
+                                  onPressed: () async {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const LogIn()));
+                                    LoggedIn();
+
+                                    // login();
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                          width: 20,
+                                          height: 20,
+                                          child: Icon(
+                                            Icons.lock,
+                                            color: Theme.of(context)
+                                                .secondaryHeaderColor,
+                                          )),
+                                      const SizedBox(width: 8.0),
+                                      Text(
+                                        'login'.tr(),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontFamily: "Cairo",
+                                          fontWeight: FontWeight.w600,
+                                          color: Theme.of(context)
+                                              .secondaryHeaderColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
+                              Container(
+                                margin: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Theme.of(context).errorColor,
+                                ),
+                                child: TextButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shadowColor: Colors.black,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Register()));
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                          width: 20,
+                                          height: 20,
+                                          child: Image.asset(
+                                            "assets/icons/user-male.png",
+                                            color: Theme.of(context)
+                                                .secondaryHeaderColor,
+                                          )),
+                                      const SizedBox(width: 8.0),
+                                      Text(
+                                        'register'.tr(),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontFamily: "Cairo",
+                                          fontWeight: FontWeight.w600,
+                                          color: Theme.of(context)
+                                              .secondaryHeaderColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ])
+                          : Column(
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Theme.of(context).errorColor,
+                                  ),
+                                  child: TextButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.black,
+                                    ),
+onPressed: () async {
+  await performLogout();
+  setState(() {
+    isLoggedIn = false;
+  });
+},
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        const Icon(Icons.logout,
+                                            color: Colors.amber),
+                                        const SizedBox(width: 5.0),
+                                        Text(
+                                          'logout'.tr(),
+                                          style: const TextStyle(
+                                              fontSize: 20,
+                                              fontFamily: "Cairo",
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.amber),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Theme.of(context).errorColor,
+                                  ),
+                                  child: TextButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.black,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LogIn()));
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width: 30,
+                                          height: 30,
+                                          child: Image.asset(
+                                            "assets/icons/user.png",
+                                            fit: BoxFit.cover,
+                                            color: Colors.amber,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5.0),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Theme.of(context).errorColor,
+                                  ),
+                                  child: TextButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.black,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LogIn()));
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width: 30,
+                                          height: 30,
+                                          child: Image.asset(
+                                            "assets/icons/bell.png",
+                                            fit: BoxFit.cover,
+                                            color: Colors.amber,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5.0),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                       Container(
                         margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
@@ -505,7 +691,6 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
                                   ? 'ar'
                                   : 'en',
                               remember: true,
-                              //restart: true,
                             );
                             setState(() {
                               _bool = !_bool;
@@ -623,5 +808,68 @@ class _MyHeadreDrawerState extends State<MyHeadreDrawer> {
             }),
       ),
     );
+  }
+
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  services ser = services();
+
+  login() async {
+    final String apiUrl = 'https://backend.fingerprintm.com/api/auth/login';
+
+    var response = await ser.postRequest(apiUrl, {
+      "email": emailController.text,
+      "password": passwordController.text,
+    });
+    if (response['status'] == true) {
+      // اه
+      // تم تسجيل الدخول بنجاح
+      // تحديث حالة تسجيل الدخول وتخزين بيانات المستخدم
+
+      // ...
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MessagePushHome()));
+      // توجيه المستخدم إلى الشاشة الرئيسية
+      print("تم التسجيل الدخول");
+
+      AlertDialog(
+        backgroundColor: Colors.black,
+        title: Text('خطأ'),
+        content: Text(response["message"]), // تمم عوزين نظبط الرساله
+        actions: <Widget>[
+          TextButton(
+            child: Text('موافق'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      );
+      return true;
+    } else {
+      // حدث خطأ في تسجيل الدخول
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Theme.of(context).canvasColor,
+            title: Text('خطأ'),
+            content: Text(response["message"]),
+            actions: <Widget>[
+              TextButton(
+                child: Text('موافق'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        },
+      );
+
+      return false;
+    }
   }
 }

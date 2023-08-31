@@ -1,4 +1,4 @@
-import 'package:arabic_english_app/screens/customer_reviews.dart';
+import 'package:arabic_english_app/views/customer_reviews.dart';
 import 'package:arabic_english_app/widget/carousel_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';

@@ -1,4 +1,4 @@
-import 'package:arabic_english_app/screens/spladh_screen.dart';
+import 'package:arabic_english_app/views/spladh_screen.dart';
 import 'package:arabic_english_app/them.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,23 +6,16 @@ import 'package:get_storage/get_storage.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
 import 'package:flutter/services.dart';
 
-
-
-
 bool _switchValue = true;
- main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
-  ]);
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent
-  ));
+void main() async {
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   await GetStorage.init();
   // if your flutter > 1.7.8 :  ensure flutter activated
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   await translator.init(
     localeType: LocalizationDefaultType.device,
     languagesList: <String>['ar', 'en'],
@@ -31,7 +24,7 @@ bool _switchValue = true;
 
   runApp(
     LocalizedApp(
-      child:const MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -53,14 +46,11 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeService().darkThem,
       themeMode: ThemeMode.system,
       //ThemeService().getThemMode(),
-      
-      home:  const SplashScreen(),
+
+      home: const SplashScreen(),
       localizationsDelegates: translator.delegates, // Android + iOS Delegates
       locale: translator.locale, // Active locale
       supportedLocales: translator.locals(), // Locals list
     );
   }
 }
-
-
-

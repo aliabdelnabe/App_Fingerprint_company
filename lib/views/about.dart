@@ -1,4 +1,4 @@
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/Content%20writing.dart';
 import 'package:arabic_english_app/widget/after_sales_services.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';

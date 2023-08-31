@@ -1,65 +1,147 @@
-
-import 'package:arabic_english_app/screens/production%20_videos.dart';
+import 'package:arabic_english_app/views/website%20_design%20_and_hosting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class FingerprintServices7 extends StatelessWidget {
-  const FingerprintServices7({
-    super.key,
-    required this.width,
-  });
+bool _login = false;
+bool _isLoading = true;
+
+class FingerprintServices7 extends StatefulWidget {
+  const FingerprintServices7({super.key, required this.width});
 
   final double width;
 
   @override
+  State<FingerprintServices7> createState() => _FingerprintServices7State();
+}
+
+class _FingerprintServices7State extends State<FingerprintServices7> {
+  Future apicall() async {
+    try {
+      http.Response response;
+      response = await http.get(Uri.parse(
+          "https://backend.fingerprintm.com/api/getSections?active=true"));
+      if (response.statusCode == 200) {
+        setState(() {
+          mapResponse = json.decode(response.body);
+          listResponse = mapResponse["data"];
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+        listResponse = [];
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Theme.of(context).dividerColor,
+                elevation: 0,
+                contentTextStyle: TextStyle(
+                  color: Theme.of(context).canvasColor,
+                ),
+                iconColor: Colors.black,
+                shadowColor: Colors.transparent,
+                title: Text("Contact_the_internet".tr()),
+                content: Container(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        child: Image.asset(
+                          "assets/icons/wifi (2).png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context).dividerColor),
+                        child: Text(
+                          "There_is_no_internet_connection".tr(),
+                          style: TextStyle(
+                              color: Theme.of(context).canvasColor,
+                              fontSize: 25),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            });
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Container(
       padding: const EdgeInsets.all(15),
-      child: Column(
-        children: [
-          Container(
-            child: SvgPicture.asset("assets/images/image_puctur_product.svg",
-            fit: BoxFit.cover,
-            ),
-          ),
-        TextButton(
-          onPressed: (){
-            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                builder: (context) => const ProductionVideos()));
-          },
-          child: Text("Product photograph".tr(),
-            style:  TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Cairo",
-            color: Theme.of(context).secondaryHeaderColor,
-                                    ),
-                                  ),
-        ),
-    Text("Product photography title1".tr(),
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: 1,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Container(
+                child: SvgPicture.asset(
+                  "assets/images/image_puctur_product.svg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WebsiteDesignScreen(
+                                name: "moo".tr(),
+                                url: "section/video",
+                              )));
+                },
+                child: Text(
+                  "Product photograph".tr(),
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cairo",
+                    color: Theme.of(context).secondaryHeaderColor,
+                  ),
+                ),
+              ),
+              Text(
+                "Product photography title1".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
-                  style:  TextStyle(
+                style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
                 ),
-                ),
-                Text("Product photography title2".tr(),
+              ),
+              Text(
+                "Product photography title2".tr(),
                 maxLines: 7,
                 overflow: TextOverflow.ellipsis,
-                  style:  TextStyle(
+                style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
                   fontFamily: "Cairo",
                   color: Theme.of(context).secondaryHeaderColor,
                 ),
-                ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }

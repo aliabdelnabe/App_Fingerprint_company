@@ -1,5 +1,5 @@
 
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/social_media_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
@@ -98,7 +98,7 @@ class _WriteReviewState extends State<WriteReview> {
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).colorScheme.background,
                         ),
                         child: DropdownButtonFormField<String>(
                           isDense: true,
@@ -109,10 +109,10 @@ class _WriteReviewState extends State<WriteReview> {
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: 
-                                  BorderSide(width: 20,color: Theme.of(context).backgroundColor,)
+                                  BorderSide(width: 20,color: Theme.of(context).colorScheme.background,)
                           )
                         ),
-                        dropdownColor: Theme.of(context).backgroundColor,
+                        dropdownColor: Theme.of(context).colorScheme.background,
                         value: selectedItem,
                         items: itemsList
                         .map((item) => DropdownMenuItem(
@@ -144,7 +144,7 @@ class _WriteReviewState extends State<WriteReview> {
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Theme.of(context).backgroundColor,
+                                  color: Theme.of(context).colorScheme.background,
                                 ),
                                 child: TextFormField(
                                   controller: _textController,

@@ -1,4 +1,4 @@
-import 'package:arabic_english_app/screens/mobile_body.dart';
+import 'package:arabic_english_app/views/mobile_body.dart';
 import 'package:arabic_english_app/widget/foter_bar.dart';
 import 'package:arabic_english_app/widget/my_heardre_drawer.dart';
 import 'package:arabic_english_app/widget/social_media_widget.dart';
@@ -222,7 +222,7 @@ class _ContactUsState extends State<ContactUs> {
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).colorScheme.background,
                         ),
                         child:  TextField(
                         decoration: InputDecoration(

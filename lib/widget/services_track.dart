@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:localize_and_translate/localize_and_translate.dart';
 
-import '../screens/mobile_body.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
